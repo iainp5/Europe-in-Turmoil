@@ -1,0 +1,312 @@
+const CODE = []
+
+CODE[205] = [ // Intelligentsia
+	[ vm_if, ()=>control_socio_country(SOCIO_INTELLECTUALS, game.active_country) ],
+	[ vm_decrease_tension, 1 ],
+	[ vm_recover_from_discard_ops, 2 ],
+	[ vm_else ],
+	[ vm_log, 'No controlled Intellectual space' ],
+	[ vm_endif ],
+	[ vm_return ],
+]
+
+CODE[206] = [ // Left-wing Governments
+	[ vm_if, ()=>control_socio_country(SOCIO_GOVERNMENT, game.active_country) ],
+	[ vm_add_limited_infl_uncontrolled, 1, 3 ],
+	[ vm_else ],
+	[ vm_log, 'No controlled Intellectual space' ],
+	[ vm_endif ],
+	[ vm_return ],
+]
+
+CODE[213] = [ // Support of the Generals
+	[ vm_if, ()=>control_socio_country(SOCIO_ARMY, game.active_country) ],
+	[ vm_increase_tension, 1 ],
+	[ vm_sc_country_ops, 1, 3 ],
+	[ vm_else ],
+	[ vm_log, 'No controlled Army space' ],
+	[ vm_endif ],
+	[ vm_return ],
+]
+
+CODE[217] = [ // Elitist Art
+	[ vm_if, ()=>control_socio_country(SOCIO_INTELLECTUALS, game.active_country) ],
+	[ vm_gain_vp, 1 ],
+	[ vm_else ],
+	[ vm_log, 'No controlled Intellectual space' ],
+	[ vm_endif ],
+	[ vm_return ],
+]
+
+CODE[1] = [ // Admiral von Tirpitz*
+	[ vm_permanently_remove ],
+	[ vm_increase_tension, 1 ],
+	[ vm_do_crisis ],
+	[ vm_admiral_von_tirpitz ],
+	[ vm_return ],
+]
+
+CODE[2] = [ // State Secularism in France*
+	[ vm_state_secularism ],
+	[ vm_eliminate, S_FRENCH_CATHOLIC_CHURCH ],
+	[ vm_return ],
+]
+
+CODE[3] = [ // Second International*
+	[ vm_permanently_remove ],
+	[ vm_prompt, 'in up to 4 space(s) with no Authoritarian SP' ],
+	[ vm_add_limited_infl_no_aut, 1, 4 ],
+	[ vm_return ],
+]
+
+CODE[4] = [ // Franz Ferdinand*
+	[ vm_prompt, ' in up to 3 space(s) in Austria-Hungary not under Liberal control' ],
+	[ vm_add_limited_infl_not_opp_controlled_country, 1, 3, N_AUSTRIA_HUNGARY ],
+	[ vm_franz_ferdinand ],
+	[ vm_return ],
+]
+
+CODE[5] = [ // Dreyfus Affair
+	[ vm_dreyfus_affair ],
+	[ vm_return ],
+]
+
+CODE[6] = [ // France Scoring
+	[ vm_score_country ],
+	[ vm_return ],
+]
+
+CODE[7] = [ // Austria-Hungary Scoring
+	[ vm_score_country ],
+	[ vm_return ],
+]
+
+CODE[8] = [ // Russia Scoring
+	[ vm_score_country ],
+	[ vm_return ],
+]
+
+CODE[9] = [ // Russo-Japanese War*
+	[ vm_permanently_remove ],
+	[ vm_prompt, 'the Tsarist Army, Nicolas II and/or Government spaces in Russia, no more than 2 per space' ],
+	[ vm_remove_limited_opp_infl_spaces, 2, 4, S_TSARIST_ARMY, S_NICOLAS_II, S_ST_PETERSBURG, S_MOSCOW ],
+	[ vm_return ],
+]
+
+CODE[10] = [ // Entente Cordiale*
+	[ vm_add_to_playable, C_HENRY_WILSON ],
+	[ vm_entente_cordiale ],
+	[ vm_prompt, 'in spaces in France not under Authoritarian control (no more than 2 per space)' ],
+	[ vm_add_limited_infl_not_opp_controlled_country, 2, 4, N_FRANCE ],
+	[ vm_return ],
+]
+
+CODE[11] = [ // Foreign Investments
+	[ vm_foreign_investments ],
+	[ vm_return ],
+]
+
+CODE[13] = [ // Traditionalism
+	[ vm_prompt, ' in Farmer spaces (no more than 2 per space)' ],
+	[ vm_add_limited_infl_free_socio, 2, 4, SOCIO_FARMERS ],
+	[ vm_return ],
+]
+
+CODE[14] = [ // Radical Party Founded*
+	[ vm_permanently_remove ],
+	[ vm_prompt, 'in up to 4 space(s) in France not under Authoritarian Control' ],
+	[ vm_add_limited_infl_not_opp_controlled_country, 1, 4, N_FRANCE ],
+	[ vm_return ],
+]
+
+CODE[15] = [ // Lord Fisher*
+	[ vm_lord_fisher ],
+	[ vm_return ],
+]
+
+CODE[16] = [ // Stymied
+	[ vm_stymied ],
+	[ vm_return ],
+]
+
+CODE[17] = [ // Eight Nation Alliance
+	[ vm_eight_nation_alliance ],
+	[ vm_return ],
+]
+
+CODE[18] = [ // Bernhard von Bülow*
+	[ vm_play_from_discard ],
+	[ vm_return ],
+]
+
+CODE[19] = [ // Union of Liberation*
+	[ vm_permanently_remove ],
+	[ vm_add_to_playable, C_VICTOR_CHERNOV ],
+	[ vm_remove_opp_infl_country, 2, N_RUSSIA ],
+	[ vm_sc_country, 1, N_RUSSIA ],
+	[ vm_return ],
+]
+
+CODE[20] = [ // Bonapartism / Monarchism*
+	[ vm_permanently_remove ],
+	[ vm_take_control, S_FRENCH_ARMY ],
+	[ vm_sc_country, 1, N_FRANCE ],
+	[ vm_return ],
+]
+
+CODE[21] = [ // Prussian Spirit*
+	[ vm_permanently_remove ],
+	[ vm_add_infl_free_country, 3, N_GERMANY ],
+	[ vm_return ],
+]
+
+CODE[22] = [ // Socialist Movements
+	[ vm_add_infl_free_socio, 2, SOCIO_WORKERS ],
+	[ vm_return ],
+]
+
+CODE[23] = [ // Third Department / Okhrana*
+	[ vm_permanently_remove ],
+	[ vm_third_department ],
+	[ vm_return ],
+]
+
+CODE[24] = [ // Tsarist Repression*
+	[ vm_permanently_remove ],
+	[ vm_tsarist_repression ],
+	[ vm_return ],
+]
+
+CODE[25] = [ // Legacy of Bismarck
+	[ vm_legacy_of_bismark ],
+	[ vm_return ],
+]
+
+CODE[26] = [ // Franco-Russian Alliance*
+	[ vm_franco_russian_alliance ],
+	[ vm_prompt, 'in non-Authoritarian controlled space(s) in France and/or Russia' ],
+	[ vm_add_infl_free_not_opp_controlled_countries, 2, N_FRANCE, N_RUSSIA ],
+	[ vm_return ],
+]
+
+CODE[27] = [ // The Dual Alliance*
+	[ vm_dual_alliance ],
+	[ vm_prompt, 'in non-Liberal controlled spaces in Austria-Hungary and/or Germany' ],
+	[ vm_add_infl_free_not_opp_controlled_countries, 2, N_AUSTRIA_HUNGARY, N_GERMANY ],
+	[ vm_return ],
+]
+
+CODE[28] = [ // Scramble for Africa*
+	[ vm_permanently_remove ],
+	[ vm_scramble_for_africa ],
+	[ vm_return ],
+]
+
+CODE[29] = [ // Two-power Standard*
+	[ vm_permanently_remove ],
+	[ vm_two_power_standard ],
+	[ vm_return ],
+]
+
+CODE[30] = [ // Military Tradition
+	[ vm_add_infl_free_socio, 2, SOCIO_ARMY ],
+	[ vm_return ],
+]
+
+CODE[31] = [ // Status Quo*
+	[ vm_permanently_remove ],
+	[ vm_add_infl_free_socio, 3, SOCIO_BOURGOISIE ],
+	[ vm_return ],
+]
+
+CODE[33] = [ // Modernism
+	[ vm_prompt, 'in Intellectual spaces, no more than 2 per space' ],
+	[ vm_add_limited_infl_free_socio, 2, 4, SOCIO_INTELLECTUALS ],
+	[ vm_return ],
+]
+
+CODE[34] = [ // Government-sponsored Art
+	[ vm_prompt, 'in each Intellectual space (except Bosnia and Siberia)' ],
+	[ vm_add_limited_infl_free_spaces, 1, S_FRENCH_WRITERS, S_FAUVISM, S_JUGENDSTIL, S_VIENNESE_SECESSION, S_SYMBOLISM, S_DENMARK ],
+	[ vm_return ],
+]
+
+CODE[35] = [ // Absolutism*
+	[ vm_absolutism ],
+	[ vm_return ],
+]
+
+CODE[36] = [ // March of History*
+	[ vm_march_of_history ],
+	[ vm_return ],
+]
+
+CODE[37] = [ // Ferdinand Esterhazy
+	[ vm_ferdinand_esterhazy ],
+	[ vm_return ],
+]
+
+CODE[38] = [ // Kulturkampf
+	[ vm_sc_socio_no_opp_adj, 2, SOCIO_INTELLECTUALS, SOCIO_CHURCH ],
+	[ vm_return ],
+]
+
+CODE[40] = [ // Indecisiveness
+	[ vm_decrease_tension, 1 ],
+	[ vm_add_infl_free, 1 ],
+	[ vm_return ],
+]
+
+CODE[49] = [ // Austria Annexes Bosnia*
+	[ vm_add_to_peristent_events ],
+	[ vm_increase_tension, 1 ],
+	[ vm_do_crisis ],
+	[ vm_add_limited_infl_free_spaces, 3, S_BOSNIA ],
+	[ vm_return ],
+]
+
+CODE[57] = [ // Naval Bill / Fleet Law*
+	[ vm_permanently_remove ],
+	[ vm_increase_tension, 1 ],
+	[ vm_do_crisis ],
+	[ vm_advance_naval, 1 ],
+	[ vm_return ],
+]
+
+CODE[63] = [ // October Manifesto*
+	[ vm_october_manifesto ],
+	[ vm_prompt, 'in spaces in Russia (no more than 2 per space)' ],
+	[ vm_add_limited_infl_free_country, 2, 5, N_RUSSIA ],
+	[ vm_return ],
+]
+
+CODE[64] = [ // Diagonal Politics*
+	[ vm_permanently_remove ],
+	[ vm_prompt, 'to each Authoritarian controlled space in Germany' ],
+	[ vm_add_limited_infl_all_opp_controlled_country, 1, N_GERMANY ],
+	[ vm_return ],
+]
+
+CODE[67] = [ // Landslide Electoral Victory
+	[ vm_prompt, 'in 4 Liberal-controlled spaces' ],
+	[ vm_add_limited_infl_own_controlled_spaces, 1, 4 ],
+	[ vm_return ],
+]
+
+CODE[68] = [ // Triple Alliance*
+	[ vm_triple_alliance ],
+	[ vm_take_control, S_ITALY ],
+	[ vm_return ],
+]
+
+CODE[73] = [ // Central Authority
+	[ vm_central_authority ],
+	[ vm_return ],
+]
+
+CODE[78] = [ // Revolution of 1905*
+	[ vm_increase_tension, 1 ],
+	[ vm_revolution_1905 ],
+	[ vm_do_crisis ],
+	[ vm_return ],
+]

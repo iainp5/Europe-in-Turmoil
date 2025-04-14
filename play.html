@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width,
+		height=device-height,
+		user-scalable=no,
+		interactive-widget=resizes-content,
+		viewport-fit=cover">
+	<meta name="theme-color" content="#444">
+	<meta charset="UTF-8">
+	<title>Europe in Turmoil: Prelude to the Great War</title>
+	<link rel="icon" href="favicon.svg">
+	<link rel="stylesheet" href="/fonts/fonts.css">
+	<link rel="stylesheet" href="/common/client.css">
+	<link rel="stylesheet" href="play.css">
+	<script defer src="/common/client.js"></script>
+	<script defer src="data.js"></script>
+	<script defer src="play.js"></script>
+</head>
+<body>
+
+<div id="tooltip" class="card hide"></div>
+
+<header>
+	<div id="toolbar">
+		<details>
+			<summary><img src="/images/cog.svg"></summary>
+			<menu>
+				<li><a href="info/rules.html" target="_blank">Rules</a>
+				<li class="separator">
+			</menu>
+		</details>
+	</div>
+</header>
+
+<aside>
+	<div id="roles"></div>
+	<div id="turn_info"></div>
+	<div id="log"></div>
+</aside>
+
+<main data-min-zoom="0.5" data-max-zoom="2.0">
+    <div id="mapwrap">
+		<div id="map">
+			<div id="playmap"></div>
+			<div id="naval"></div>
+			<div id="spaces"></div>
+			<div id="markers">
+				<div id="turn_marker" class="marker"></div>
+				<div id="action_round" class="marker"></div>
+				<div id="tension" class="marker"></div>
+				<div id="vp" class="marker"></div>
+				<div id="league" class="marker emp3"></div>
+				<div id="navy_br" class="marker"></div>
+				<div id="navy_ger" class="marker"></div>
+				<div id="high_water" class="marker"></div>
+				<div id="secularism" class="marker"></div>
+				<div id="bosnia" class="marker"></div>
+				<div id="schlieffen" class="marker"></div>
+				<div id="us_interventionism" class="marker"></div>
+				<div id="von_bethmann_hollweg" class="marker"></div>
+				<div id="norway" class="marker"></div>
+				<div id="belgium" class="marker"></div>
+				<div id="german_army_expansion" class="marker"></div>
+				<div id="black_hand" class="marker"></div>
+			</div>
+			<div id="coordinates">X: 0, Y: 0</div>
+		</div>
+	</div>
+
+	<div id="played_card_panel" class="panel">
+		<div id="played_card_header" class="panel_header">Played Card</div>
+		<div id="played_card" class="panel_body"></div>
+	</div>
+	
+	<div id="stability_panel" class="autohide panel">
+		<div id="stability_header" class="panel_header">Stability Hand</div>
+		<div id="stability_hand" class="panel_body stability"></div>
+	</div>
+	
+	<div id="stability_discard_panel" class="autohide panel">
+		<div id="stability_discard_header" class="panel_header">Stability Discard</div>
+		<div id="stability_discard" class="panel_body stability"></div>
+	</div>
+	
+	<div id="opp_hand_panel" class="autohide panel">
+		<div id="opp_hand_header" class="panel_header">Opponent Hand</div>
+		<div id="opp_hand" class="panel_body"></div>
+	</div>
+	<div id="hand_panel" class="panel">
+		<div id="hand_header" class="panel_header">Hand</div>
+		<div id="hand" class="panel_body"></div>
+	</div>
+
+	<!-- PERSISTENT EVENTS -->
+	<div id="persistent_panel" class="panel">
+		<div id="persistent_header" class="panel_header">Persistent Events on the Table</div>
+		<div id="persistent" class="panel_body"></div>
+	</div>
+
+	<!-- DISCARD -->
+	<div id="discard_panel" class="panel hide">
+		<div id="discard_header" class="panel_header">Discard</div>
+		<div id="discard" class="panel_body"></div>
+	</div>
+
+	<!-- PERMANENTLY REMOVED -->
+	<div id="removed_panel" class="panel hide">
+		<div id="removed_header" class="panel_header">Permanently Removed Events</div>
+		<div id="removed" class="panel_body"></div>
+	</div>
+
+</main>
+
+<footer id="status"></footer>
+
+</body>

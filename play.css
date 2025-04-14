@@ -1,0 +1,477 @@
+main { background-color: slategray; }
+
+body.Liberal header.your_turn { background-color: hsl(206, 85%, 75%); }
+body.Authoritarian header.your_turn { background-color: hsl(45, 70%, 75%); }
+
+#role_Liberal { background-color: hsl(206, 80%, 80%); }
+#role_Authoritarian { background-color: hsl(45, 70%, 80%); }
+
+/* LOG */
+
+#log { font-variant-numeric: tabular-nums; }
+
+#log .die {
+	display: inline-block;
+	vertical-align: -3px;
+	width: 12px;
+	height: 12px;
+	background-size: 600% 100%;
+	background-repeat: no-repeat;
+	background-image: url(images/die_black_pips.svg);
+	background-color: #fff;
+	border: 1px solid #444;
+}
+
+#log .d0 { background-position: -100% 0 }
+#log .d1 { background-position: 0% 0; }
+#log .d2 { background-position: 20% 0; }
+#log .d3 { background-position: 40% 0; }
+#log .d4 { background-position: 60% 0; }
+#log .d5 { background-position: 80% 0; }
+#log .d6 { background-position: 100% 0; }
+
+#log .h1 { font-weight: bold; padding-top:2px; padding-bottom:2px; text-align: center; }
+#log .h2 { padding-top:2px; padding-bottom:2px; text-align: center; }
+#log .h3 { text-align: center; }
+#log .h4 { font-weight: bold; }
+#log .h5 { text-decoration: underline; }
+
+#log { background-color: floralwhite }
+#log .h1 { background-color: tan }
+#log .h2 { background-color: wheat }
+#log .h3 { background-color: wheat }
+
+#log .h1, .h2, .h3 {
+	font-variant-caps: small-caps;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#log .h2.lib {
+	background-color: hsl(206, 85%, 80%);
+	border-top: 1px solid hsl(206, 85%, 25%);
+	border-bottom: 1px solid hsl(206, 85%, 25%);
+}
+#log .h2.aut {
+	background-color: hsl(45, 70%, 80%);
+	border-top: 1px solid hsl(45, 70%, 25%);
+	border-bottom: 1px solid hsl(45, 70%, 25%);
+}
+#log .group.lib { background-color: hsl(206, 85%, 90%); }
+#log .group.aut { background-color: hsl(45, 70%, 90%); }
+#log .group.both { background-color: gainsboro; }
+
+#log .group { margin: 0 6px; }
+#log .header.group.lib { background-color: hsl(206, 85%, 85%); }
+#log .header.group.aut { background-color: hsl(45, 70%, 85%); }
+#log .header.group.both { background-color: hsl(0, 0%, 80%); }
+
+#log div { padding-left: 20px; text-indent: -12px; }
+#log div.i { padding-left: 32px; text-indent: -12px; }
+#log div.ii { padding-left: 44px; text-indent: -12px; }
+
+#log .card_name { font-style: italic; }
+#log .card_name:hover { text-decoration: underline; }
+#log .space_tip:hover { cursor: pointer; text-decoration: underline; }
+#log .naval_tip:hover { cursor: pointer; text-decoration: underline; }
+
+/* MAP */
+
+#mapwrap {
+	width: 3882px;
+	height: 1669px;	
+}
+
+#map {
+	width: 2569px;
+	height: 1669px;
+	background-size: 2569px 1669px;
+	box-shadow: 0px 1px 10px #0008;
+}
+
+#map { background-image: url("map.jpg") }
+@media (min-resolution: 97dpi) {
+	#map { background-image: url("map.jpg") }
+}
+/*
+#playmap { background-image: url("map.jpg") }
+@media (min-resolution: 97dpi) {
+	#playmap { background-image: url("map.jpg") }
+}*/
+
+#naval {
+	width: 	1313px;
+	height: 1669px;
+	position: absolute;
+	left: 2569px;
+	background-size: 1313px 1669px;
+	box-shadow: 0px 1px 10px #0008;
+	;
+}
+
+#naval { background-image: url("naval_chart.jpg") }
+@media (min-resolution: 97dpi) {
+	#naval { background-image: url("naval_chart.jpg") }
+}
+
+/* SPACES */
+
+.space {
+    position: absolute;
+	box-sizing: border-box;
+	border: 4px solid transparent;
+}
+
+.space.action {
+    border: gold solid 2px;
+	box-shadow: 0 0 3px gold;
+}
+
+.space.selected {
+	border-color: aqua;
+	box-shadow: 0 0 0 1px black, inset 0 0 0 1px black;
+}
+
+.space.secularism {
+	background-color: #faebd7cc;
+	border-color: antiquewhite;
+}
+
+/* MARKERS */
+
+.marker { background-color: #ffffff; border-color: #eeeeee #8a8a8a #8a8a8a #eeeeee; box-shadow: 0 0 0 1px #323232, 1px 2px 4px #0008; }
+.lib_infl.ctl { background-color: #c4e2f6; border-color: #e6ffff #8ca8bb #8ca8bb #e6ffff; box-shadow: 0 0 0 1px #274050, 1px 2px 4px #0008; }
+.auth_infl.ctl { background-color: #c69e05; border-color: #c49f0e #c2a639 #9b7c01 #ebca4a; box-shadow: 0 0 0 1px #534300, 1px 2px 4px #0008; }
+#turn_marker {background-image: url(markers/turn.png);}
+#action_round {background-image: url(markers/ar.png);}
+#tension {background-image: url(markers/tension.png);}
+#vp {background-image: url(markers/vp.png);}
+#league {
+	top: 537px;
+	left: 2218px;
+}
+#league.emp3 {background-image: url(markers/3_emp_leage.png)}
+#league.alliance {background-image: url(markers/fr_alliance.png);}
+#league.russian_collapse {background-image: url(markers/russian_collapse.png);}
+#great_war_10 {background-image: url(markers/entente_cordiale.png);}
+#great_war_27 {background-image: url(markers/dual_alliance.png);}
+#great_war_68 {background-image: url(markers/triple_alliance.png);}
+#great_war_87 {background-image: url(markers/balkan_war.png);}
+#great_war_90 {background-image: url(markers/balkan_war.png);}
+#great_war_94 {background-image: url(markers/perfidious_italy.png);}
+#great_war_95 {background-image: url(markers/splendid_isolation.png);}
+#navy_br {background-image: url(markers/navy_br.png);}
+#navy_by.plus {background-image: url(markers/navy_br_1.png);}
+#navy_ger {background-image: url(markers/navy_ger.png);}
+#navy_ger.plus {background-image: url(markers/navy_ger_1.png);}
+#high_water {background-image: url(markers/high_water.png);}
+#secularism {
+	background-image: url(markers/secularism.png);
+	top: 724px;
+	left: 606px;
+}
+#bosnia {
+	background-image: url(markers/bosnia_annexed.png);
+	top: 1154px;
+	left: 1115px;
+}
+#schlieffen {
+	background-image: url(markers/schlieffen.png);
+	top: 454px;
+	left: 2375px;
+}
+#us_interventionism {
+	background-image: url(markers/us_interventionism.png);
+	top: 454px;
+	left: 2245px;
+}
+#von_bethmann_hollweg {
+	background-image: url(markers/von_bethmann_hollweg.png);
+	top: 454px;
+	left: 2310px;
+}
+#norway {
+	background-image: url(markers/norway.png);
+	top: 66px;
+	left: 751px;
+}
+#belgium {
+	background-image: url(markers/belgium.png);
+	top: 551px;
+	left: 574px;
+}
+#german_army_expansion {
+	background-image: url(markers/german_army_expansion.png);
+	top: 454px;
+	left: 2440px;
+}
+#black_hand {
+	background-image: url(markers/black_hand.png);
+}
+
+.marker {
+	position: absolute;
+	pointer-events: none;
+	width: 40px;
+	height: 40px;
+	border: 2px solid;
+	border-color: #eee #bbb #bbb #eee;
+	box-shadow: 0 0 0 1px #444;
+	transition-property: top, left;
+	transition-duration: 700ms;
+	transition-timing-function: ease;
+	background-size: cover;
+}
+
+.lib_infl { background-color: #fff; }
+.auth_infl { background-color: #fff; }
+.lib_infl.ctl { background-color: #147fc0; }
+.auth_infl.ctl { background-color: #c1272d; }
+
+.lib_infl.v1 { background-image: url(markers/l1.png) }
+.lib_infl.v2 { background-image: url(markers/l2.png) }
+.lib_infl.v3 { background-image: url(markers/l3.png) }
+.lib_infl.v4 { background-image: url(markers/l4.png) }
+.lib_infl.v5 { background-image: url(markers/l5.png) }
+.lib_infl.v6 { background-image: url(markers/l6.png) }
+.lib_infl.v7 { background-image: url(markers/l7.png) }
+.lib_infl.v8 { background-image: url(markers/l8.png) }
+.lib_infl.v9 { background-image: url(markers/l9.png) }
+.lib_infl.v10 { background-image: url(markers/l10.png) }
+.lib_infl.ctl.v1 { background-image: url(markers/l1c.png) }
+.lib_infl.ctl.v2 { background-image: url(markers/l2c.png) }
+.lib_infl.ctl.v3 { background-image: url(markers/l3c.png) }
+.lib_infl.ctl.v4 { background-image: url(markers/l4c.png) }
+.lib_infl.ctl.v5 { background-image: url(markers/l5c.png) }
+.lib_infl.ctl.v6 { background-image: url(markers/l6c.png) }
+.lib_infl.ctl.v7 { background-image: url(markers/l7c.png) }
+.lib_infl.ctl.v8 { background-image: url(markers/l8c.png) }
+.lib_infl.ctl.v9 { background-image: url(markers/l9c.png) }
+.lib_infl.ctl.v10 { background-image: url(markers/l10c.png) }
+
+.auth_infl.v1 { background-image: url(markers/a1.png) }
+.auth_infl.v2 { background-image: url(markers/a2.png) }
+.auth_infl.v3 { background-image: url(markers/a3.png) }
+.auth_infl.v4 { background-image: url(markers/a4.png) }
+.auth_infl.v5 { background-image: url(markers/a5.png) }
+.auth_infl.v6 { background-image: url(markers/a6.png) }
+.auth_infl.v7 { background-image: url(markers/a7.png) }
+.auth_infl.v8 { background-image: url(markers/a8.png) }
+.auth_infl.v9 { background-image: url(markers/a9.png) }
+.auth_infl.v10 { background-image: url(markers/a10.png) }
+.auth_infl.ctl.v1 { background-image: url(markers/a1c.png) }
+.auth_infl.ctl.v2 { background-image: url(markers/a2c.png) }
+.auth_infl.ctl.v3 { background-image: url(markers/a3c.png) }
+.auth_infl.ctl.v4 { background-image: url(markers/a4c.png) }
+.auth_infl.ctl.v5 { background-image: url(markers/a5c.png) }
+.auth_infl.ctl.v6 { background-image: url(markers/a6c.png) }
+.auth_infl.ctl.v7 { background-image: url(markers/a7c.png) }
+.auth_infl.ctl.v8 { background-image: url(markers/a8c.png) }
+.auth_infl.ctl.v9 { background-image: url(markers/a9c.png) }
+.auth_infl.ctl.v10 { background-image: url(markers/a10c.png) }
+
+/* CARD PANELS */
+
+.panel {
+	background-color: #607080;
+	max-width: 1650px;
+	margin: 24px auto;
+}
+
+.panel_header {
+	background-color: #506070;
+	color: white;
+	font-weight: bold;
+	padding: 3px;
+	text-align: center;
+}
+
+.panel_body {
+	margin-top: 3px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 16px;
+	gap: 16px;
+	min-height: 350px;
+}
+
+.panel_body.power {
+	min-height: 263px;
+}
+
+.panel.autohide:has(.panel_body:empty) {
+	display: none;
+}
+
+#discard_header, #removed_header {
+	background-color: hsl(210,15%,38%);
+}
+#discard_panel, #removed_panel {
+	background-image: repeating-linear-gradient(135deg,
+		hsl(210,15%,33%),
+		hsl(210,15%,33%) 60px,
+		hsl(210,15%,30%) 60px,
+		hsl(210,15%,30%) 120px
+	)
+}
+
+/* CARDS */
+
+#tooltip {
+	position: fixed;
+	pointer-events: none;
+	z-index: 600;
+	right: 240px;
+	top: 60px;
+}
+
+.card {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #fffde9;
+	width: 250px;
+	height: 350px;
+	border-radius: 16px;
+	box-shadow: 0 0 0 1px #444, 1px 2px 4px #0004;
+}
+
+.card.action {
+	box-shadow: 0 0 0 1px #444, 0 0 0 4px white;
+}
+
+.card.selected {
+	box-shadow: 0 0 0 1px #444, 0 0 0 4px yellow;
+}
+
+.card.strategy_1 { background-image: url(cards_s/s001.jpg)}
+.card.strategy_2 { background-image: url(cards_s/s002.jpg)}
+.card.strategy_3 { background-image: url(cards_s/s003.jpg)}
+.card.strategy_4 { background-image: url(cards_s/s004.jpg)}
+.card.strategy_5 { background-image: url(cards_s/s005.jpg)}
+.card.strategy_6 { background-image: url(cards_s/s006.jpg)}
+.card.strategy_7 { background-image: url(cards_s/s007.jpg)}
+.card.strategy_8 { background-image: url(cards_s/s008.jpg)}
+.card.strategy_9 { background-image: url(cards_s/s009.jpg)}
+.card.strategy_10 { background-image: url(cards_s/s010.jpg)}
+.card.strategy_11 { background-image: url(cards_s/s011.jpg)}
+.card.strategy_12 { background-image: url(cards_s/s012.jpg)}
+.card.strategy_13 { background-image: url(cards_s/s013.jpg)}
+.card.strategy_14 { background-image: url(cards_s/s014.jpg)}
+.card.strategy_15 { background-image: url(cards_s/s015.jpg)}
+.card.strategy_16 { background-image: url(cards_s/s016.jpg)}
+.card.strategy_17 { background-image: url(cards_s/s017.jpg)}
+.card.strategy_18 { background-image: url(cards_s/s018.jpg)}
+.card.strategy_19 { background-image: url(cards_s/s019.jpg)}
+.card.strategy_20 { background-image: url(cards_s/s020.jpg)}
+.card.strategy_21 { background-image: url(cards_s/s021.jpg)}
+.card.strategy_22 { background-image: url(cards_s/s022.jpg)}
+.card.strategy_23 { background-image: url(cards_s/s023.jpg)}
+.card.strategy_24 { background-image: url(cards_s/s024.jpg)}
+.card.strategy_25 { background-image: url(cards_s/s025.jpg)}
+.card.strategy_26 { background-image: url(cards_s/s026.jpg)}
+.card.strategy_27 { background-image: url(cards_s/s027.jpg)}
+.card.strategy_28 { background-image: url(cards_s/s028.jpg)}
+.card.strategy_29 { background-image: url(cards_s/s029.jpg)}
+.card.strategy_30 { background-image: url(cards_s/s030.jpg)}
+.card.strategy_31 { background-image: url(cards_s/s031.jpg)}
+.card.strategy_32 { background-image: url(cards_s/s032.jpg)}
+.card.strategy_33 { background-image: url(cards_s/s033.jpg)}
+.card.strategy_34 { background-image: url(cards_s/s034.jpg)}
+.card.strategy_35 { background-image: url(cards_s/s035.jpg)}
+.card.strategy_36 { background-image: url(cards_s/s036.jpg)}
+.card.strategy_37 { background-image: url(cards_s/s037.jpg)}
+.card.strategy_38 { background-image: url(cards_s/s038.jpg)}
+.card.strategy_39 { background-image: url(cards_s/s039.jpg)}
+.card.strategy_40 { background-image: url(cards_s/s040.jpg)}
+.card.strategy_41 { background-image: url(cards_s/s041.jpg)}
+.card.strategy_42 { background-image: url(cards_s/s042.jpg)}
+.card.strategy_43 { background-image: url(cards_s/s043.jpg)}
+.card.strategy_44 { background-image: url(cards_s/s044.jpg)}
+.card.strategy_45 { background-image: url(cards_s/s045.jpg)}
+.card.strategy_46 { background-image: url(cards_s/s046.jpg)}
+.card.strategy_47 { background-image: url(cards_s/s047.jpg)}
+.card.strategy_48 { background-image: url(cards_s/s048.jpg)}
+.card.strategy_49 { background-image: url(cards_s/s049.jpg)}
+.card.strategy_50 { background-image: url(cards_s/s050.jpg)}
+.card.strategy_51 { background-image: url(cards_s/s051.jpg)}
+.card.strategy_52 { background-image: url(cards_s/s052.jpg)}
+.card.strategy_53 { background-image: url(cards_s/s053.jpg)}
+.card.strategy_54 { background-image: url(cards_s/s054.jpg)}
+.card.strategy_55 { background-image: url(cards_s/s055.jpg)}
+.card.strategy_56 { background-image: url(cards_s/s056.jpg)}
+.card.strategy_57 { background-image: url(cards_s/s057.jpg)}
+.card.strategy_58 { background-image: url(cards_s/s058.jpg)}
+.card.strategy_59 { background-image: url(cards_s/s059.jpg)}
+.card.strategy_60 { background-image: url(cards_s/s060.jpg)}
+.card.strategy_61 { background-image: url(cards_s/s061.jpg)}
+.card.strategy_62 { background-image: url(cards_s/s062.jpg)}
+.card.strategy_63 { background-image: url(cards_s/s063.jpg)}
+.card.strategy_64 { background-image: url(cards_s/s064.jpg)}
+.card.strategy_65 { background-image: url(cards_s/s065.jpg)}
+.card.strategy_66 { background-image: url(cards_s/s066.jpg)}
+.card.strategy_67 { background-image: url(cards_s/s067.jpg)}
+.card.strategy_68 { background-image: url(cards_s/s068.jpg)}
+.card.strategy_69 { background-image: url(cards_s/s069.jpg)}
+.card.strategy_70 { background-image: url(cards_s/s070.jpg)}
+.card.strategy_71 { background-image: url(cards_s/s071.jpg)}
+.card.strategy_72 { background-image: url(cards_s/s072.jpg)}
+.card.strategy_73 { background-image: url(cards_s/s073.jpg)}
+.card.strategy_74 { background-image: url(cards_s/s074.jpg)}
+.card.strategy_75 { background-image: url(cards_s/s075.jpg)}
+.card.strategy_76 { background-image: url(cards_s/s076.jpg)}
+.card.strategy_77 { background-image: url(cards_s/s077.jpg)}
+.card.strategy_78 { background-image: url(cards_s/s078.jpg)}
+.card.strategy_79 { background-image: url(cards_s/s079.jpg)}
+.card.strategy_80 { background-image: url(cards_s/s080.jpg)}
+.card.strategy_81 { background-image: url(cards_s/s081.jpg)}
+.card.strategy_82 { background-image: url(cards_s/s082.jpg)}
+.card.strategy_83 { background-image: url(cards_s/s083.jpg)}
+.card.strategy_84 { background-image: url(cards_s/s084.jpg)}
+.card.strategy_85 { background-image: url(cards_s/s085.jpg)}
+.card.strategy_86 { background-image: url(cards_s/s086.jpg)}
+.card.strategy_87 { background-image: url(cards_s/s087.jpg)}
+.card.strategy_88 { background-image: url(cards_s/s088.jpg)}
+.card.strategy_89 { background-image: url(cards_s/s089.jpg)}
+.card.strategy_90 { background-image: url(cards_s/s090.jpg)}
+.card.strategy_91 { background-image: url(cards_s/s091.jpg)}
+.card.strategy_92 { background-image: url(cards_s/s092.jpg)}
+.card.strategy_93 { background-image: url(cards_s/s093.jpg)}
+.card.strategy_94 { background-image: url(cards_s/s094.jpg)}
+.card.strategy_95 { background-image: url(cards_s/s095.jpg)}
+.card.strategy_96 { background-image: url(cards_s/s096.jpg)}
+.card.strategy_97 { background-image: url(cards_s/s097.jpg)}
+.card.strategy_98 { background-image: url(cards_s/s098.jpg)}
+.card.strategy_99 { background-image: url(cards_s/s099.jpg)}
+.card.strategy_100 { background-image: url(cards_s/s100.jpg)}
+.card.strategy_101 { background-image: url(cards_s/s101.jpg)}
+.card.strategy_102 { background-image: url(cards_s/s102.jpg)}
+.card.strategy_103 { background-image: url(cards_s/s103.jpg)}
+.card.strategy_104 { background-image: url(cards_s/s104.jpg)}
+.card.strategy_105 { background-image: url(cards_s/s105.jpg)}
+.card.strategy_106 { background-image: url(cards_s/s106.jpg)}
+.card.strategy_107 { background-image: url(cards_s/s107.jpg)}
+.card.strategy_108 { background-image: url(cards_s/s108.jpg)}
+.card.strategy_109 { background-image: url(cards_s/s109.jpg)}
+.card.strategy_110 { background-image: url(cards_s/s110.jpg)}
+
+.card.stability_1 { background-image: url(cards_2/l_st_1.png)}
+.card.stability_2 { background-image: url(cards_2/l_st_2.png)}
+.card.stability_3 { background-image: url(cards_2/l_st_3.png)}
+.card.stability_4 { background-image: url(cards_2/l_st_4.png)}
+.card.stability_5 { background-image: url(cards_2/l_st_5.png)}
+.card.stability_6 { background-image: url(cards_2/l_st_6.png)}
+.card.stability_7 { background-image: url(cards_2/l_st_7.png)}
+.card.stability_8 { background-image: url(cards_2/l_st_8.png)}
+.card.stability_9 { background-image: url(cards_2/l_st_9.png)}
+.card.stability_10 { background-image: url(cards_2/l_st_10.png)}
+.card.stability_11 { background-image: url(cards_2/a_st_1.png)}
+.card.stability_12 { background-image: url(cards_2/a_st_2.png)}
+.card.stability_13 { background-image: url(cards_2/a_st_3.png)}
+.card.stability_14 { background-image: url(cards_2/a_st_4.png)}
+.card.stability_15 { background-image: url(cards_2/a_st_5.png)}
+.card.stability_16 { background-image: url(cards_2/a_st_6.png)}
+.card.stability_17 { background-image: url(cards_2/a_st_7.png)}
+.card.stability_18 { background-image: url(cards_2/a_st_8.png)}
+.card.stability_19 { background-image: url(cards_2/a_st_9.png)}
+.card.stability_20 { background-image: url(cards_2/a_st_10.png)}
+
+.card.back {background-image: url(cards_2/stability_back.png);}

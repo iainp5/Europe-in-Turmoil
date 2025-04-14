@@ -1,0 +1,831 @@
+CARD 1 - Admiral von Tirpitz*
+# Increase Tension by 1. Make a Crisis roll, then remove up to 2 Authortarian SP from space(s) in Germany to advance the German Navy an equal number of spaces.
+permanently_remove
+increase_tension 1
+do_crisis
+admiral_von_tirpitz
+
+CARD 2 - State Secularism in France*	
+# Remove all SP from the French Catholic Church space. That space and all connections to it are considered to be absent for the rest of the game. Place marker in French Catholic Church space.
+state_secularism
+
+CARD 3 - Second International*	
+# Place 1 Liberal SP in up to 4 space(s) with no Authoritarian SP. May not be played if Tension higher than 2.
+permanently_remove
+prompt 'in up to 4 space(s) with no Authoritarian SP'
+add_limited_infl_no_aut 1 4
+
+CARD 4 - Franz Ferdinand*	
+# Place 1 Authoritarian SP in up to 3 space(s) in Austria-Hungary not under Liberal control. While Vienna and Budapest are under Authoritarian control, Tension cannot rise higher than 3. May not be played after Gavrilo Pincip.
+franz_ferdinand
+prompt ' Place 1 Authoritarian SP in up to 3 space(s) in Austria-Hungary not under Liberal control'
+add_limited_infl_not_opp_controlled_country 1 3 N_AUSTRIA_HUNGARY
+
+CARD 5 - Dreyfus Affair	
+# Place 2 SP in space(s) in France. All costs for opponent to place SP in France are doubled for the rest of the turn. May not be played after Dreyfus Rehabilitated.
+dreyfus_affair
+prompt 'Place 2 SP in space(s) in France'
+add_infl_free_country 2 N_FRANCE
+
+CARD 6 - France Scoring
+score_country
+
+CARD 7 - Austria-Hungary Scoring
+score_country
+
+CARD 8 - Russia Scoring
+score_country
+
+CARD 9 - Russo-Japanese War*	
+# Remove 4 Authoritarian SP from the Tsarist Army, Nicolas II and/or Government spaces in Russia, no more than 2 per space.
+permanently_remove
+prompt 'Remove 4 Authoritarian SP from the Tsarist Army, Nicolas II and/or Government spaces in Russia, no more than 2 per space'
+remove_limited_opp_infl_spaces 2 4 S_TSARIST_ARMY S_NICOLAS_II S_SAINT_PETERSBURG S_MOSCOW
+
+CARD 10 - Entente Cordiale*	
+# Place 4 Liberal SP in spaces in France not under Authoritarian control (no more than 2 per space). Allows play of Henry Wilson. Place Entente Cordiale marker on Great War Track.
+add_to_playable C_HENRY_WILSON
+entente_cordiale
+prompt 'Place 4 Liberal SP in spaces in France not under Authoritarian control (no more than 2 per space)'
+add_limited_infl_not_opp_controlled_country 2 4 N_FRANCE
+
+CARD 11 - Foreign Investments	
+# Relocate up to 4 Liberal SP from Worker spaces in France and/or Germany to space(s) in Russia, Austria-Hungary or the Balkans (no more than 2 per space).
+foreign_investments
+
+CARD 12 - Magyarization*	
+# Place 3 Liberal SP in Budapest, then make a Support Check in Austria-Hungary using the OPs value of this card.
+permanently_remove
+add_infl_free_space 3 S_BUDAPEST
+sc_country 1 N_AUSTRIA_HUNGARY
+
+CARD 13 - Traditionalism	
+# Place 4 Authoritarian SP in Farmer spaces (no more than 2 per space).
+prompt 'Place 4 Authoritarian SP in Farmer spaces (no more than 2 per space)'
+add_limited_infl_free_socio 2 4 SOCIO_FARMERS
+
+CARD 14 - Radical Party Founded*
+# Place 1 Liberal SP in up to 4 space(s) in France not under Authoritarian Control.
+permanently_remove
+prompt 'Place 1 Liberal SP in up to 4 space(s) in France not under Authoritarian Control'
+add_limited_infl_not_opp_controlled_country 1 4 N_FRANCE
+
+CARD 15 - Lord Fisher*	
+# Liberal Naval Arms Race attempts receive an additional +1 for the rest of the game. Advance British Navy marker to HMS Dreadnought space (if not already beyond).
+lord_fisher
+
+CARD 16 - Stymied	
+#Opponent's cards have -1 OPs for the rest of the turn, to minimum of 1.
+stymied
+
+CARD 17 - Eight Nation Alliance	
+# Play together with an opponent's event to cancel the event taking place. Opponent gains 1 VP if this card is played for OPs.
+eight_nation_alliance
+
+CARD 18 - Bernhard von Bülow*
+# May be played only if Authoritarian player controls at least 3 Monarch spaces. Authoritarian Player may take non-Scoring card in the discard pile and immediately play it for the event. May not be played after Bethmann-Hollweg.
+play_from_discard
+
+CARD 19 - Union of Liberation*	
+# Remove 2 Authoritarian SP from space(s) in Russia, then make Support Check in Russia using the OPs value of this card. Allows play of Victor Chernov.
+permanently_remove
+add_to_playable C_VICTOR_CHERNOV
+remove_opp_infl_country 2 N_RUSSIA
+sc_country 1 N_RUSSIA
+
+CARD 20 - Bonapartism / Monarchism*	
+# Add enough Authortarian SP to French Armed Forces space for control, then make a Support Check in France using this card's OPs value. May not be played after Georges Clemenceau.
+permanently_remove
+take_control S_FRENCH_ARMY
+sc_country 1 N_FRANCE
+
+CARD 21 - Prussian Spirit*	
+# Place 3 Authoritarian SP in space(s) in Germany.
+permanently_remove
+add_infl_free_country 3 N_GERMANY
+
+CARD 22 - Socialist Movements	
+# Place 2 Liberal SP in Worker space(s).
+prompt 'Worker'
+add_infl_free_socio 2 SOCIO_WORKERS
+
+CARD 23 - Third Department / Okhrana*	
+# Look throught the available Stability Cards of the Liberal Player, choose one card and add it to the unavailable Liberal Stability cards.
+permanently_remove
+third_department
+
+CARD 24 - Tsarist Repression*	
+#Roll a die, adding 1 if in the Edwardian and 2 if in the Georgian era. Relocate Liberal SP equal to the die result (or all, if less are present) from spaces in Russia to the Siberia space (if less than 6 was rolled) or the St. Petersburg space (if 6 or more was rolled).
+permanently_remove
+tsarist_repression
+
+CARD 25 - Legacy of Bismarck	
+# For the rest of the turn, no OPs may be spent in the Balkans and the cards War in the Balkans and Balkan Civil War do not cause Crisis Rolls.
+legacy_of_bismarck
+
+CARD 26 - Franco-Russian Alliance*	
+# Place 2 Liberal SP in non-Authoritarian controlled space(s) in France and/or Russia. May not be played after Russian Collapse. Flip the Three Emperor League marker to its Franco-Russian Alliance side.
+franco_russian_alliance
+prompt 'in non-Authoritarian controlled space(s) in France and/or Russia'
+add_infl_free_not_opp_controlled_countries 2 N_FRANCE N_RUSSIA
+
+CARD 27 - The Dual Alliance*	
+# Place 2 Authoritarian SP in non-Liberal controlled spaces in Austria-Hungary and/or Germany. Place Dual Alliance marker on the Great War Track.
+dual_alliance
+prompt 'in non-Liberal controlled spaces in Austria-Hungary and/or Germany'
+add_infl_free_not_opp_controlled_countries 2 N_AUSTRIA_HUNGARY N_GERMANY
+
+CARD 28 - Scramble for Africa*	
+# Place 3 Authoritarian SP in the following space(s): Morocco, Algeria, Tunisia, and/or Libya (and/or Belgium after Belgian Rule in The Congo).
+permanently_remove
+scramble_for_africa
+
+CARD 29 - Two-power Standard*	
+# For his next two actions (three instead if the German Navy marker is currently ahead of the British one), the Liberal player must make two (respectively three) consecutive Naval Arms Race attempts.
+permanently_remove
+two_power_standard
+
+CARD 30 - Military Tradition
+# Place 2 Authoritarian SP in Army space(s).
+prompt 'Army'
+add_infl_free_socio 2 SOCIO_ARMY
+
+CARD 31 - Status Quo*	
+#Place 3 Authoritarian SP in Bourgeoisie space(s).
+permanently_remove
+prompt 'Bourgeoisie'
+add_infl_free_socio 3 SOCIO_BOURGOISIE
+
+CARD 32 - Copenhagenization*	
+# Increase Tension by 1. Make a Crisis roll, then retreat German Navy marker two spaces.
+permanently_remove
+increase_tension 1
+do_crisis
+retreat_german_navy 2
+
+CARD 33 - Modernism	
+#Place 4 Liberal SP in Intellectual spaces, no more than 2 per space.
+prompt 'Place 4 Liberal SP in Intellectual spaces, no more than 2 per space'
+add_limited_infl_free_socio 2 4 SOCIO_INTELLECTUALS
+
+CARD 34 - Government-sponsored Art	
+# Place 1 Authoritarian SP in each Intellectual space (except Bosnia and Siberia).
+prompt 'Place 1 Authoritarian SP in each Intellectual space (except Bosnia and Siberia)'
+add_limited_infl_free_spaces 1 5 S_FRENCH_WRITERS S_FAUVISM S_JUGENDSTIL S_VIENNESE_SECESSION S_SYMBOLISM S_DENMARK
+
+CARD 35 - Absolutism*	
+# +1 OPs value for cards played by the Authoritarian player for the rest of the turn.
+absolutism
+
+CARD 36 - March of History*	
+# +1 OPs value for cards played by the Liberal Player for the rest of the turn.
+march_of_history
+
+CARD 37 - Ferdinand Esterhazy	
+# The Liberal player must randomly discard a card. If the card has an Authoritarian Event, the Event occurs immediately. Otherwise, the card must be discarded without triggering the Event. May not be played after Dreyfus Rehabilitated.
+ferdinand_esterhazy
+
+CARD 38 - Kulturkampf	
+# Make 2 Support Checks in Intellectual and/or Church spaces using the OPs value of this card. Cancel the modifier for any adjacent spaces controlled by the Authoritarian player.
+sc_socio_no_opp_adj 2 SOCIO_INTELLECTUALS SOCIO_CHURCH
+
+CARD 39 - Spiritism and Mysticism	
+# Remove 1 Authoritarian SP from up to 4 Church, Monarch, and/or Bourgeoise spaces (no more than 2 SP per scoring region).
+prompt 'from up to 4 Church, Monarch, and/or Bourgeoise spaces (no more than 2 SP per scoring region)'
+remove_limited_opp_infl_socios_country 1 2 4 SOCIO_CHURCH SOCIO_MONARCHY SOCIO_BOURGOISIE
+
+CARD 40 - Indecisiveness	
+# Reduce Tension by 1. Place  1 SP in any space.
+decrease_tension 1
+add_infl_free 1
+
+CARD 41 - Dreyfus Rehabilitated*	
+# Play only if the Liberal player controlled the French Writers space at the beginning of this round. Remove 2 SP from the French Armed Forces space and 2 SP from other French space(s), then make a Support Check in France with this card's OPs value. Prevents play of Dreyfus Affair.
+permanently_remove
+remove_from_playable C_DREYFUS_AFFAIR
+remove_from_playable C_FERDINAND_ESTERHAZY
+prompt 'from the French Armed Forces space.'
+remove_opp_infl_space 2 S_FRENCH_ARMY
+prompt 'from other French space(s)'
+remove_opp_infl_country_excl_space 2 N_FRANCE S_FRENCH_ARMY
+sc_country 1 N_FRANCE
+
+CARD 42 - The Kaiser Intervenes	
+# Increase Tension by 1. Place 1 Authoritarian SP in any space.
+increase_tension 1
+add_infl_free 1
+
+CARD 43 - Balkans Scoring	
+# Presence 2; Domination 4; Control 6; +1 per Battleground; +1 per adjacent Independent space. Make a Crisis roll after scoring. MAY NOT BE HELD
+score_country
+
+CARD 44 - Second Hague Conference*	
+# The Authoritarian player chooses: either the disarmanent talks fail (increase Tension by 1 and he gains 2 VPs) or they succeed (place 4 Authoritarian SPs in Army and/or Monarch spaces, no more than 1 per space).
+permanently_remove
+second_hague_conference
+
+CARD 45 - Belgian Rule in Congo*	
+# Liberal player chooses: Either lose 2 VP or place enough Authoritarian SP in Belgium for control and for the rest of the game treat Belgium as an Annex space. Place maker in the the Congo Annexed space near Belgium.
+belgian_rule_in_congo
+
+CARD 46 - Liberals gain Power in UK*	
+#Place a Liberal SP in one Government space per Scoring Region an in one Independent country.
+permanently_remove
+prompt 'in one Government space per Scoring Region'
+add_limited_infl_free_socio_per_country 1 1 4 SOCIO_GOVERNMENT
+add_infl_free_country 1 N_INDEPENDENT
+
+CARD 47 - Young Turk Revolution*	
+# Place 2 Liberal SP in Constantinople and/or space(s) in the Balkan Region (no more thn 1 per space), then make 2 Support Checks using this card's OPs value in spaces in the Balkan Region. Allows play of Freedom and Accord Party and Raid on the Sublime Porte.
+prompt 'Place 2 Liberal SP in 2 spaces, either in Constantinople and/or space(s) in the Balkan Region'
+young_turk_revolution
+sc_country 2 N_BALKANS
+
+CARD 48 - Enver Pasha*	
+# Place 2 Authoritarian SP in Constantinople. During the next Balkan Scoring, Authoritarian player may play 1 additional Stability card if he controls Macedonia. Allows play of Freedom and Accord Party and Raid on the Sublime Porte.
+add_to_persistent_events
+log 'During the next Balkan Scoring, Authoritarian player may play 1 additional Stability card if he controls Macedonia.'
+add_to_playable C_FREEDOM_AND_ACCORD_PARTY
+add_to_playable C_RAID_ON_THE_SUBLIME_PORTE
+add_infl_free_space 2 S_CONSTANTINOPLE
+
+CARD 49 - Austria Annexes Bosnia*	
+# Increase Tension by 1. Make a Crisis roll, then place 3 Authoritarian SP in Bosnia. For the rest of the game, the Bosnia space is considered to be a part of both the Austria-Hungary scoring region and the Balkans scoring region. Place marker in the Bosnia Annexed space.
+austria_annexes_bosnia
+increase_tension 1
+do_crisis
+prompt 'Place 3 Authoritarian SP in Bosnia'
+add_limited_infl_free_spaces 3 3 S_BOSNIA
+
+CARD 50 - Schlieffen Plan Adopted*	
+# UK is a mandatory participant in the Great War (unless Splendid Isolation marker in on the Great War track). Place 1 Authoritarian SP in Belgium. +1 to Authoritarian Great War rolls. Place the Schlieffen Plan Adopted marker in its space above the Great War track.
+add_to_persistent_events
+log 'UK is a mandatory participant in the Great War (unless Splendid Isolation marker in on the Great War track). +1 to Authoritarian Great War rolls.'
+add_infl_free_space 1 S_BELGIUM
+
+CARD 51 - Norwegian Independence*	
+# Place 2 Liberal SP in Norway. From now on, SP can be placed in Norway and Support Checks can be made in Norway. Place marker in Norwegian Independence space.
+add_to_persistent_events
+log 'From now on, SP can be placed in Norway and Support Checks can be made in Norway.'
+add_infl_free_space 2 S_NORWAY
+
+CARD 52 - Conrad von Hötzendorf*	
+# Place 1 Authoritarian SP in each Austrian-Hungarian Army and Government space. Increase Tension by 1.
+permanently_remove
+increase_tension 1
+prompt 'Place 1 Authoritarian SP in each Austrian-Hungarian Army and Government space'
+add_limited_infl_free_spaces 1 3 S_VIENNA S_BUDAPEST S_GALICIA_PRZEMESYL
+
+CARD 53 - German Scoring	
+# Presence 3; Domination 6; Control 9; +1 per Battleground; +1 per adjacent Independent space. Make a Crisis roll after scoring. MAY NOT BE HELD
+score_country
+
+CARD 54 - Traditionalists Gain Power*	
+# Relocate up to 4 Authoritarian SP from Farmer and/or Army spaces to Government spaces in the same scoring region(s).
+permanently_remove
+traditionalists_gain_power
+
+CARD 55 - Viscount Grey	
+# Liberal may use 3 OPs (4 if in the Georgian era). If used for a Support Check, ignore adjacent Authoritarian controlled spaces. If used to place SP, ignore Authoritarian control of spaces. May not be played after Splendid Isolation.
+viscount_grey
+
+CARD 56 - Control of the Channel*	
+#If ahead on the Naval Arms Race Track, choose one non-scoring card from the discard pile to have its event take place immediately.
+permanently_remove
+control_of_the_channel
+
+CARD 57 - Naval Bill / Fleet Law*	
+# Increase Tension by 1. Make a Crisis roll, then advance one space on the Naval Arms Race track.
+permanently_remove
+increase_tension 1
+do_crisis
+advance_naval 1
+
+CARD 58 - US Interventionism*	
+# +2 to Liberal Great War rolls if Entente Cordiale is in effect. All Liberal Stability cards become available. Prevents play of Arms Traders / Industry. May not be played after US Non-Interventionism. Place US Interventionism marker in its space above the Great War Track.
+us_interventionism
+
+CARD 59 - Declaration of Independence*	
+# Place enough Authoritarian SP in one non-Liberal controlled Balkan space for control.
+permanently_remove
+if !is_auto_resolve(C_DECLARATION_OF_INDEPENDENCE)
+prompt 'Take control of one non-Liberal controlled space in '
+take_control_uncontrolled_space_country 1 N_BALKANS
+else
+log 'No uncontrolled space in the Balkans.'
+endif
+
+CARD 60 - Legacy of 1848*	
+# The Authoritarian player must reveal all his evens with title written in red. The Liberal player may take any one of them and play it for the event, with the event occurring immediately, or he may play this card for Operations.
+permanently_remove
+legacy_of_1848
+
+CARD 61 - Russian Collapse*	
+# Play only if at least three battlegrounds in the Russian Scoring Region are Liberal-controlled. Increase Tension by 1, then make a Crisis roll. Prevents play of Franco-Russian Alliance. Replace the Three Emperor League / Franco-Prussian Alliance marker with the Russian Collapse marker on the Great War track.
+add_to_persistent_events
+remove_from_peristent_events C_FRANCO_RUSSIAN_ALLIANCE
+remove_from_playable C_FRANCO_RUSSIAN_ALLIANCE
+increase_tension 1
+do_crisis
+
+CARD 62 - Jozef Piłsudski*	
+# Place 2 Liberal SP in Poland (and/or spaces adjacent to Poland), then make a Support Check in Poland with this card's OPs value.
+permanently_remove
+prompt 'SP in Poland and/or spaces adjacent to Poland'
+add_infl_free_space_adj 2 S_POLAND
+sc_space 1 S_POLAND
+
+CARD 63 - October Manifesto*	
+# May only be played after Revolution of 1905. Place 5 Liberal SP in spaces in Russia (no more than 2 per space). Allows play of Second Duma Disbanded.
+october_manifesto
+prompt 'Place 5 Liberal SP in spaces in Russia (no more than 2 per space)'
+add_limited_infl_free_country 2 5 N_RUSSIA
+
+CARD 64 - Diagonal Politics*	
+# Add 1 Liberal SP to each Authoritarian controlled space in Germany.
+permanently_remove
+prompt 'Add 1 Liberal SP to each Authoritarian controlled space in Germany'
+add_limited_infl_all_opp_controlled_country 1 N_GERMANY 
+
+CARD 65 - Second Duma Disbanded*	
+# May only be played after October Manifesto or Victor Chernov. Relocate all Liberal SP from one space in Russia to the Siberia space.
+permanently_remove
+second_duma_disbanded
+
+CARD 66 - Henry Wilson*	
+# May only be played after Entente Cordiale. Replace 1 Authoritarian SP with Liberal SP on the French Armed Forces space, then make a Support Check in France using this card's OPs value. May not be played after Splendid Isolation.
+permanently_remove
+prompt 'Replace 1 Authoritarian SP with Liberal SP on the French Armed Forces space'
+replace_opp_space 1 1 S_FRENCH_ARMY
+sc_country 1 N_FRANCE
+
+CARD 67 - Landslide Electoral Victory	
+# Place a Liberal SP in 4 Liberal-controlled spaces.
+prompt 'Place a Liberal SP in 4 Liberal-controlled spaces'
+add_limited_infl_own_controlled_spaces 1 4
+
+CARD 68 - Triple Alliance*	
+# Place enough Authoritarian SP on the Italy space to control it. May not be played after Perfidious Italy. Place the Triple Alliance marker on the Great War track.
+triple_alliance
+take_control S_ITALY
+
+CARD 69 - Prince Heinrich*	
+# Playable only if German Navy is ahead on the Naval Arms Race track. Authoritarian player gains one VP for each space ahead of the British Navy.
+permanently_remove
+prince_heinrich
+
+CARD 70 - Winston Churchill*	
+# Playable only if British Navy is ahead on the Naval Arms Race track. Liberal player may discard and redraw one card for each space ahead of the German Navy.
+permanently_remove
+winston_churchill
+
+CARD 71 - Local Uprising	
+# Increase Tension by 1. Place 3 Liberal SP in Annexed space(s).
+increase_tension 1
+prompt 'Annex'
+add_infl_free_socio 3 SOCIO_ANNEX
+
+CARD 72 - Military Parade	
+# Choose an Authoritarian-controlled Army space. Place 1 Authoritarian SP in each adjacent space.
+military_parade
+
+CARD 73 - Central Authority	
+# Place an Authoritarian SP in all Authoritarian-controlled spaces in one Scoring Region.
+central_authority
+
+CARD 74 - von Bethmann-Hollweg*	
+# Authoritarian player may make an additional Naval Arms Race attempt each turn. While the German Navy marker is not flipped to its +1 side, Authoritarian Naval Arms Race automatically fail. +1 to Authoritarian Great War rolls. Prevents play of Bernhard von Bülow. Place the von Bethmann-Hollweg marker on its space above the Great War Track.
+add_to_persistent_events
+log 'Authoritarian player may make an additional Naval Arms Race attempt each turn. While the German Navy marker is not flipped to its +1 side, Authoritarian Naval Arms Race automatically fail. +1 to Authoritarian Great War rolls.'
+remove_from_playable C_BERNHARD_VON_BÜLOW
+
+CARD 75 - Jean Jaures*	
+# Reduce Tension by 1. For the rest of the game, whenever a Crisis roll will be made, Liberal player may lose 1 VP to reduce Tension by 1. May not be played after Raoul Villain.
+jean_jaures
+decrease_tension 1
+
+CARD 76 - Georges Clemenceau*	
+# May not be played after Aristide Briand. Remove 1 Authoritarian SP from each SP in France containing SP from both players. For the rest of the game, cancels +1 OPs cost to place SPs in Authoritarian controlled spaces in France and prevents play of Bonapartism/Monarchism.
+log `For the rest of the game, cancels +1 OPs cost to place SPs in Authoritarian controlled spaces in France.`
+remove_from_playable C_BONAPARTISM___MONARCHISM
+add_to_persistent_events
+prompt 'from each SP in France containing SP from both players'
+remove_limited_opp_infl_country_both_present 1 N_FRANCE
+
+CARD 77 - Alsace-Lorraine*	
+# Gain 2 VPs if Alsace-Lorraine is Authortarian-controlled, then place 2 Authortarian SP in Alsace-Lorraine. Increase Tension by 1.
+permanently_remove
+if check_aut_control(S_ALSACE_LORRAINE)
+add_vp 2
+else
+log `%${S_ALSACE_LORRAINE} not Authoritarian contolled.`
+endif
+prompt 'Place 2 Authortarian SP in Alsace-Lorraine'
+add_limited_infl_free_spaces 2 2 S_ALSACE_LORRAINE
+increase_tension 1
+
+CARD 78 - Revolution of 1905*	
+# Increase Tension by 1. Make a number of Support Checks in Russia equal to this card's OPs value (Increasing each roll by the current Tension level instead of this card's OPs), then make a Crisis roll. Allows play of October Manifesto.
+increase_tension 1
+revolution_1905
+do_crisis
+
+CARD 79 - Victor Chernov*	
+# May only be played after Union of Liberation. Replace 3 Authoritarian SP in Russia by Liberal SP (1 per space). Next Scoring in Russia, play an additional Stability card. Allows play of Second Duma Disbanded.
+victor_chernov
+prompt 'Replace 3 Authoritarian SP in Russia by Liberal SP (1 per space)'
+replace_opp_country 1 3 N_RUSSIA
+
+CARD 80 - Tangier Crisis*	
+# Liberal player chooses: Either he loses 3 VP or Authoritarian player places 2 SP on the French Armed Forces space (if already Authoritarian controlled, any space in France instead), increases Tension by 1 and make a Crisis roll.
+permanently_remove
+tangier_crisis
+if check_aut_control(S_FRENCH_ARMY)
+add_infl_free_space_country 2 N_FRANCE
+else
+add_infl_free_space 2 S_FRENCH_ARMY
+endif
+increase_tension 1
+do_crisis
+
+CARD 81 - Raoul Villain*	
+# Authoritarian player gains one VP. Prevents play and ends ongoing effect of Jean Jaures.
+permanently_remove
+gain_vp 1
+remove_from_peristent_events C_JEAN_JAURES
+remove_from_playable C_JEAN_JAURES
+
+CARD 82 - Agadir Crisis*	
+# Liberal player chooses: Either he loses one VP and places enough Authoritarian SP in Morocco for Authoritarian control or he gains one VP, increases Tension by +2 and make a Crisis roll.
+permanently_remove
+agadir_crisis
+
+CARD 83 - Gavrilo Princip*	
+# Cancels ongoing effect of Franz Ferdinand. Increase Tension by +2, then make a Crisis roll. May not play after Yugoslavia if Authoritarian player won the die roll.
+permanently_remove
+remove_from_peristent_events C_FRANZ_FERDINAND
+increase_tension 2
+do_crisis
+
+CARD 84 - Balkan Federation*	
+# Add one Liberal SP to a space in the Balkans. For the remainder of the turn, the Liberal player receives +1 to the OPs value fo a card that uses all its Operations in the Balkans.
+add_to_persistent_events
+log 'For the remainder of the turn, the Liberal player receives +1 to the OPs value fo a card that uses all its Operations in the Balkans.'
+add_infl_free_country 1 N_BALKANS
+
+CARD 85 - Patriotism / Nationalism*	
+# Replace 3 Liberal SP in Workers Spaces by Authoritarian SP (max 1 per space).
+permanently_remove
+prompt 'Replace 3 Liberal SP in Workers Spaces by Authoritarian SP (max 1 per space)'
+replace_limited_opp_socio 1 3 SOCIO_WORKERS
+
+CARD 86 - Parliament Act of 1911*	
+# Gain 1 VP. Increase this gain by 1 VP for each of the following spaces if Liberal controlled: Belgium, the Netherlands, Spain/Portugal, Denmark, Norway, Sweden.
+permanently_remove
+parliament_act_1911
+
+CARD 87 - War in the Balkans*	
+# Increase Tension by 1. Make a Crisis roll, then remove 3 Liberal SP from spaces in the Balkans region. Place the Balkan Wars marker on the Great War status track (if not already there).
+add_to_persistent_events
+remove_from_peristent_events C_LEOPOLD_VON_BERCHTOLD
+increase_tension 1
+if !game.persistent_events.includes(C_LEGACY_OF_BISMARCK)
+do_crisis
+else
+log `No Crisis Roll due to C${C_LEGACY_OF_BISMARCK}.`
+endif
+remove_opp_infl_country 3 N_BALKANS
+
+CARD 88 - US Non-Interventionism*	
+# Prevents play and ends ongoing effect of US Interventionism. All Authoritarian Stability cards become available. Remove the US Intervention marker from its space above the Great War Track or from the Marker Pool.
+remove_from_playable C_US_INTERVENTIONISM
+remove_from_peristent_events C_US_INTERVENTIONISM
+add_to_playable C_ARMS_TRADERS_INDUSTRY
+reset_stability AUT
+
+CARD 89 - Stolypin Land Reforms*	
+# At each Russian Farmer space, remove one Liberal SP and add one Authoritarian SP.
+permanently_remove
+prompt 'At each Russian Farmer space, remove one Liberal SP and add one Authoritarian SP'
+replace_opp_space 1 3 S_BELARUS S_THE_UKRAINE S_CRIMEA
+
+CARD 90 - Balkan Civil War*	
+# Increase Tension by 1. Make a Crisis roll, then add enough Liberal SP in a Balkan space to match Authoritarian SP there. Place the Balkan Wars marker on the Great War status track (if not already there).
+add_to_persistent_events
+increase_tension 1
+if !game.persistent_events.includes(C_LEGACY_OF_BISMARCK)
+do_crisis
+else
+log `No Crisis Roll due to C${C_LEGACY_OF_BISMARCK}.`
+endif
+prompt 'add enough Liberal SP in a Balkan space to match Authoritarian SP there'
+match_opp_infl_country 1 N_BALKANS
+
+CARD 91 - Funeral of Edward VII*	
+# Reduce Tension by 1. Place a Liberal SP in each Monarch space.
+decrease_tension 1
+prompt 'Place a Liberal SP in each Monarch space'
+add_limited_infl_free_socio 1 6 SOCIO_MONARCHY
+
+CARD 92 - Freedom and Accord Party*	
+# May only be played after Young Turk Revolution or Enver Pasha. Place enough Liberal SP in Constantinope to break Authoritarian control, then place Liberal SP in Balkan spaces equal to the number of Liberal SP in Constantinople (max 4). May not play after Raid on the Sublime Porte.
+permanently_remove
+prompt 'Place enough Liberal SP in Constantinope to break Authoritarian control'
+break_control S_CONSTANTINOPLE
+freedom_and_accord_party
+
+CARD 93 - Raid on the Sublime Porte*	
+# May only be played after Young Turk Revolution or Enver Pasha. Make a Crisis roll, remove all Liberal SPs from Constantinople, then relocate up to 4 Authoritarian SP from Constantinople to Balkan spaces. Prevents play of Freedom and Accord Party.
+add_to_persistent_events
+remove_from_playable C_FREEDOM_AND_ACCORD_PARTY
+do_crisis
+raid_on_the_sublime_porte
+
+CARD 94 - Perfidious Italy*	
+# Place 2 Liberal SP in both Italy and Libya space. Prevents play of Triple Alliance. Place the Perfidious Italy marker on the Great War track, (or flip the Triple Alliance marker if in play).
+perfidious_italy
+remove_from_peristent_events C_TRIPLE_ALLIANCE
+remove_from_playable C_TRIPLE_ALLIANCE
+prompt 'Place 2 Liberal SP in both Italy and Libya spaces'
+add_limited_infl_free_spaces 2 4 S_ITALY S_LIBYA
+
+CARD 95 - Splendid Isolation*	
+# Remove one Liberal SP from each of the following spaces: the Netherlands, Belgium, Norway, Sweden, and Paris. Prevents the play of Entente Cordiale, Henry Wilson, and Viscount Grey. Place the Splendid Isolation marker on the Great War Status track (or flip the Entente Cordiale marker if in play).
+add_to_persistent_events
+remove_from_peristent_events C_ENTENTE_CORDIALE
+remove_from_playable C_ENTENTE_CORDIALE
+remove_from_playable C_HENRY_WILSON
+remove_from_playable C_VISCOUNT_GREY
+prompt 'Remove one Liberal SP from each of the following spaces: the Netherlands, Belgium, Norway, Sweden, and Paris'
+remove_limited_opp_infl_spaces 1 5 S_NETHERLANDS S_BELGIUM S_NORWAY S_SWEDEN S_PARIS
+
+CARD 96 - Yugoslavia*	
+# Both players roll a die, adding 1 for each of the following they control: Serbia, Montenegro, Bosnia, Croatia, and Macedonia. High roller wins (ties are won by the Authoritarian. If Authoritarian wins, replace all Liberal SP in his choice of one of those spaces by Authoritarian SP and prevents play of Gavrilo Princip.
+yugoslavia
+
+CARD 97 - Exiles Escape/Return*	
+# Liberal player may relocate up to 4 Liberal SP from the Siberia space to spaces in Russia (no more than 1 per space).
+exiles_escape
+
+CARD 98 - Reinhold von Sydow*	
+# +2 modifier to all Authoritarian Naval Arms Race attempts for the rest of the game.
+add_to_persistent_events
+log '+2 modifier to all Authoritarian Naval Arms Race attempts for the rest of the game.'
+
+CARD 99 - Franco-British Naval Cooperation*	
+# May only be played if Entente Cordiale marker is on the Great War status track. Advance the British Navy marker 1 space (2 spaces instead if behind).
+permanently_remove
+if game.lib_naval_position < game.aut_naval_position
+advance_naval 2
+else
+advance_naval 1
+endif
+
+CARD 100 - Arms Traders/Industry	
+# Gain VP equal to the current Tension level. May only play before US Interventionism or after US Non-Interventionism.
+arms_traders
+
+CARD 101 - Aristide Briand*	
+# Prevents play and ends ongoing effect of Georges Clemenceau. Place 1 Liberal SP in 2 Worker and/or Farmer spaces in France. If Paris is Liberal controlled, gain 1 VP and increase the number of affected spaces to 4.
+add_to_persistent_events
+remove_from_peristent_events C_GEORGES_CLEMENCEAU
+remove_from_playable C_GEORGES_CLEMENCEAU
+if check_lib_control(S_PARIS)
+gain_vp 1
+prompt 'Place 1 Liberal SP in 4 Worker and/or Farmer spaces in France'
+add_limited_infl_free_spaces 1 4 S_BRITANNY_NORMANDY S_PICARDY S_BORDEAUX S_DIJON S_NICE
+else
+prompt 'Place 1 Liberal SP in 2 Worker and/or Farmer spaces in France'
+add_limited_infl_free_spaces 1 2 S_BRITANNY_NORMANDY S_PICARDY S_BORDEAUX S_DIJON S_NICE
+endif
+
+CARD 102 German Army Expansion*	
+# Authoritarian player places 1 SP in each Army space in Germany not under Liberal control and gets +1 to his Great War rolls for the rest of the game. Increase Tension by 1. Place German Expansion marker in its space above the Great War Track.
+add_to_persistent_events
+prompt 'in each Army space in Germany not under Liberal control'
+add_limited_infl_not_opp_controlled_spaces 1 3 S_IMPERIAL_ARMY S_KIEL S_EAST_PRUSSIA 
+increase_tension 1
+
+CARD 103 - Black Hand*	
+# Place the Black Hand marker in Serbia, Bosnia, Montenegro, or Macedonia. No Support Checks allowed where marker is present. Counts as 2 Authoritarian SP which may never be removed.
+add_to_persistent_events
+black_hand
+
+CARD 104 - Attempted Neutrality	
+# Place 1 Liberal SP in three Independent spaces.
+prompt 'Place 1 Liberal SP in three Independent spaces'
+add_limited_infl_free_country 1 3 N_INDEPENDENT
+
+CARD 105 - Rosa Luxemburg*	
+#Roll a die, adding 1 for each Liberal-controlled Intellectual and Worker space in Germany. If the die roll exceeds 4, select any Liberal Event with the title written in red from the discard pile. The event occurs immediately.
+permanently_remove
+rosa_luxemburg
+
+CARD 106 - Preventative War*	
+# Authoritarian player gains two VPs, then removes 3 Authoritarian SP from spaces in a single region. Reduce Tension by 2.
+gain_vp 2
+remove_infl_country 3
+decrease_tension 2
+
+CARD 107 - Mitteleuropa*	
+# Retreat the German Navy marker up to 2 spaces. For each space retreated, gain 4 OPs for placing SP in Denmark, Constantinople, Italy, or spaces in the Germany, Austria-Hungary, or Balkans regions.
+mitteleuropa
+
+CARD 108 - Weltpolitik*	
+# Authoritarian player gains four VPs. Liberal player may remove 1 Authoritarian SP from 4 different players. Reduce Tension by 1.
+permanently_remove
+gain_vp 4
+change_player
+prompt 'Remove 1 Authoritarian SP from 4 different spaces'
+remove_limited_opp_infl 1 4
+decrease_tension 1
+
+CARD 109 - Leopold von Berchtold*	
+# Place 1 Authoritarian SP in the Balkans region. While the Balkan Wars marker is not on the Great War status track, the cost to place SP in the Balkans is doubled for the rest of the game.
+add_to_playable C_GAVRILO_PRINCIP
+prompt 'in the Balkans region'
+add_infl_free_country 1 N_BALKANS
+if (!game.persistent_events.includes(C_WAR_IN_THE_BALKANS) && !game.persistent_events.includes(C_BALKAN_CIVIL_WAR))
+add_to_persistent_events
+log 'While the Balkan Wars marker is not on the Great War status track, the cost to place SP in the Balkans is doubled for the rest of the game'
+else
+permanently_remove
+endif
+
+CARD 110 - Istvan Tisza*	
+# Place 1 Liberal SP on Transylvania, Budapest, and Galicia/Przemśyl. Reduce Tension by 1.
+permanently_remove
+prompt 'in Transylvania, Budapest, and Galicia/Przemśyl'
+add_limited_infl_free_spaces 1 3 S_TRANSYLVANIA S_BUDAPEST S_GALICIA_PRZEMESYL
+decrease_tension 1
+
+CARD 201 - Workers Unite	
+# Place enough Liberal SP in each non-Authoritarian controlled Worker space in the Scoring Region for control.
+prompt 'Take control of each non-Authoritarian controlled Worker space in'
+take_control_uncontrolled_socio_scoring SOCIO_WORKERS
+discard_stability
+
+CARD 202 - Farmer Collectives	
+#Place 1 Liberal SP in up to two Farmer space(s) in the Scoring Region.
+prompt 'in up to two Farmer space(s) in the Scoring Region'
+add_limited_infl_socio_scoring 1 2 SOCIO_FARMERS
+discard_stability
+
+CARD 203 - Testimonials	
+# If you control a Church space in the Scoring Region, place 1 Liberal SP in up to two Farmer, Worker, and/or Annex space(s) in the Scoring Region
+if control_socio_country(SOCIO_CHURCH, game.active_country)
+prompt 'in up to two Farmer, Worker, and/or Annex space(s) in the Scoring Region'
+add_limited_infl_socio_scoring 1 2 SOCIO_FARMERS SOCIO_WORKERS SOCIO_ANNEX
+else
+log 'Does not control a Church space.'
+endif
+discard_stability
+
+CARD 204 - Popular Uproar	
+# If opponent commenced scoring and you control an Annex space in (or adjacent to) the Scoring Region, end scoring (unplayed Stability Cards remain available for future play) and place 1 Liberal SP in the scoring region. Return the Scoring Card to opponent's hand then end this Action Round. Opponent receives an additional Action Round this turn.
+if popular_uproar()
+popular_uproar
+else
+log 'Liberal does not control an Annex space in (or adjacent to) the Scoring Region.'
+discard_stability
+endif
+
+CARD 205 - Intelligentsia	
+# If you control an Intellectual space in the Scoring Region, reduce Tension by 1 and take a card with printed 2-OPS from the discard into hand.
+if control_socio_country(SOCIO_INTELLECTUALS, game.active_country)
+decrease_tension 1
+recover_from_discard_ops 2
+else
+log 'No controlled Intellectual space.'
+endif
+discard_stability
+
+CARD 206 - Left-wing Governments
+#If you control a Government space in the Scoring Region, place 1 Liberal SP in up to three uncontrolled space(s) in the Scoring Region.
+if control_socio_country(SOCIO_GOVERNMENT, game.active_country)
+prompt 'Place 1 Liberal SP in up to three uncontrolled space(s) in the Scoring Region'
+add_limited_infl_uncontrolled_scoring 1 3
+else
+log 'No controlled Intellectual space.'
+endif
+discard_stability
+
+CARD 207 - Anarchist Attack	
+# If you control an Intellectual or Worker space in the Scoring Region, remove 1 support (3 instead if both) from a Monarch or Government space in the Scoring Region.
+anarchist_attack
+discard_stability
+
+CARD 208 - Blockade	
+# If British Navy is currently ahead on Naval Arms Race Track, remove 1 Authoritarian SP from up to two Annex space(s).
+if game.lib_naval_position > game.aut_naval_position
+prompt 'from up to two Annex space(s)'
+remove_limited_opp_infl_socio 1 2 SOCIO_ANNEX
+else
+log 'British Navy is not ahead on Naval Arms Race Track.'
+endif
+discard_stability
+
+CARD 209 - Silent Majority	
+# If you control at least four spaces in the Scoring Region, place 1 Liberal SP outside the Scoring Region.
+if control_in_country(4, game.active_country)
+add_infl_free_outside 1
+else
+log 'Does not control at least four spaces in the Scoring Region.'
+endif
+discard_stability
+
+CARD 210 - Most Favoured Nation	
+# Place 1 Liberal SP in up to two uncontrolled Independent space(s) adjacent to the Scoring Region.
+add_limited_infl_uncontrolled_ind_scoring 1 2
+discard_stability
+
+CARD 211 - Support of the Farmers	
+#For each Farmer Space you control in the Scoring Region, add 1 Authoritarian SP in Church and/or Government space(s) in the Scoring Region (max 1 per space).
+prompt 'in Church and/or Government space(s) in the Scoring Region (max 1 per space)'
+support_of_the_farmers
+discard_stability
+
+CARD 212 - Absolutist Rule	
+# If you control the Monarch space (Paris if France) and at least one other Government, Army, or Annex space in the Scoring Region, gain 2 VP.
+absolutist_rule
+discard_stability
+
+CARD 213 - Support of the Generals
+# If you control an Army space in the Scoring Region, increase Tension by 1, then make a 3-OPS Support Check in the Scoring Region.
+if control_socio_country(SOCIO_ARMY, game.active_country)
+increase_tension 1
+sc_country_ops 1 3
+else
+log 'No controlled Army space.'
+endif
+discard_stability
+
+CARD 214 - Secret Treaty Clauses	
+#If you control two or more Annex spaces in the Scoring Region or two or more Independent spaces adjacent to the Scoring Region (or one of each), draw a Strategy card, then discard a Strategy card.
+secret_treaty_clauses
+discard_stability
+
+CARD 215 - Most Favoured Nation	
+#Place 1 Authoritarian SP in up to two uncontrolled Independent space(s) adjacent to the Scoring Region.
+add_limited_infl_uncontrolled_ind_scoring 1 2
+discard_stability
+
+CARD 216 - Naval Law Amendment	
+# If German Navy is currently behind on the Naval Arms Race track, make a 2-OPS Naval Arms Race attempt (not counting towards your limit).
+if game.lib_naval_position > game.aut_naval_position
+naval_law_amendment
+else
+log 'German Navy is not behind on the Naval Arms Race track.'
+endif
+discard_stability
+
+CARD 217 - Elitist Art	
+# If you control an Intellectual Space in the Scoring Region, gain 1 VP.
+if control_socio_country(SOCIO_INTELLECTUALS, game.active_country)
+gain_vp 1
+else
+log 'No controlled Intellectual space.'
+endif
+discard_stability
+
+CARD 218 - Government Suppression	
+# If you control a Government space in the Scoring Region, place 1 Authoritarian SP in up to three uncontrolled space(s) in the Scoring Region.
+if control_socio_country(SOCIO_GOVERNMENT, game.active_country)
+prompt 'Place 1 Authoritarian SP in up to three uncontrolled space(s) in the Scoring Region'
+add_limited_infl_uncontrolled_scoring 1 3
+else
+log 'Authoritarian does not control a Government space.'
+endif
+discard_stability
+
+CARD 219 - Ecclesial Influence	
+# If you control the Church space in the Scoring Region, place 2 Authoritarian SP in Farmer, Worker, and/or Army space(s) in the Scoring Region.
+if control_socio_country(SOCIO_CHURCH, game.active_country)
+prompt 'SP in Farmer, Worker, and/or Army space(s) in the Scoring Region'
+add_limited_infl_socio_scoring 2 2 SOCIO_FARMERS SOCIO_WORKERS SOCIO_ARMY
+else
+log 'Does not control the Church space.'
+endif
+discard_stability
+
+CARD 220 - Limited Franchise	
+# If you control a Bourgeoisie space in the Scoring Region, place 2 Authoritarian SP in Government and/or Monarchy space(s) in the Scoring Region.
+if control_socio_country(SOCIO_BOURGOISIE, game.active_country)
+prompt 'SP in Government and/or Monarchy space(s) in the Scoring Region'
+add_limited_infl_socio_scoring 2 2 SOCIO_GOVERNMENT SOCIO_MONARCHY
+else
+log 'Authoritarian does not control a Bourgeoisie space.'
+endif
+discard_stability
+
+CARD 301 - HMS Dreadnought
+# The first player to reach this box may place 1 SP in up to two uncontrolled Independent spaces
+add_limited_infl_uncontrolled_ind 1 2
+
+CARD 305 - Colossus Class
+# The first player to reach this box can play a card for both its OPs value and Event once per turn until the opponent reaches this box.
+colossus
+
+CARD 312 - Bayern Class
+# The first player to reach this box can discard 2 strategy cards from hand and draw 3 replacement cards
+bayern  
