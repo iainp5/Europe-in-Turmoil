@@ -463,7 +463,7 @@ function start_game() {
 	game.temp = 0
 	game.ops = 2
 	game.strategy_deck = draw_deck()
-	game.playable_cards = [C_FRANZ_FERDINAND, C_DREYFUS_AFFAIR, C_BERNHARD_VON_BÜLOW, C_BONAPARTISM___MONARCHISM, C_FRANCO_RUSSIAN_ALLIANCE, C_FERDINAND_ESTERHAZY, C_VISCOUNT_GREY, C_US_INTERVENTIONISM, C_HENRY_WILSON, C_TRIPLE_ALLIANCE, C_JEAN_JAURES, C_GEORGES_CLEMENCEAU, C_GAVRILO_PRINCIP, C_ARMS_TRADERS_INDUSTRY]
+	game.playable_cards = [C_FRANZ_FERDINAND, C_DREYFUS_AFFAIR, C_BONAPARTISM___MONARCHISM, C_FRANCO_RUSSIAN_ALLIANCE, C_FERDINAND_ESTERHAZY, C_VISCOUNT_GREY, C_US_INTERVENTIONISM, C_HENRY_WILSON, C_TRIPLE_ALLIANCE, C_JEAN_JAURES, C_GEORGES_CLEMENCEAU, C_GAVRILO_PRINCIP, C_ARMS_TRADERS_INDUSTRY]
 	draw_cards(game.strategy_deck, game.liberal_hand, game.authoritarian_hand, 8, 8)
 	log('.0 SP:')
 }
@@ -1263,7 +1263,7 @@ function event_is_playable(card) {
 		if (vm_eight_nation_alliance_cards().length > 0)
 			return true
 	} else if (card === C_BERNHARD_VON_BÜLOW) {
-		if (count_aut_monarchist() >= 3)
+		if (count_aut_monarchist() >= 3 && !game.persistent_events.includes(C_VON_BETHMANN_HOLLWEG))
 			return true
 	} else if (card === C_DREYFUS_REHABILITATED) {
 		if (game.dreyfus_rehabilitated)
@@ -4337,7 +4337,7 @@ states.choose_card = {
 	},
 	card(card) {
 		push_undo()
-
+		game.playable_cards = game.playable_cards.filter(c => c !== C_BERNHARD_VON_BÜLOW)
 		// Check if player is at risk of losing game due to held scoring card
 		if (!SCORING_CARDS.includes(card)) {
 			let scoring_cards_count = count_scoring_cards()
