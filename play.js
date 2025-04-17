@@ -124,7 +124,7 @@ INF_DX = 33
 INF_DY = 10
 LIB = "Liberal"
 AUT = "Authoritarian"
-
+/*
 const coordinates = document.getElementById('coordinates')
 
         map.addEventListener('mousemove', (event) => {
@@ -133,7 +133,7 @@ const coordinates = document.getElementById('coordinates')
             const y = Math.floor(event.clientY - rect.top);
             coordinates.textContent = `X: ${x}, Y: ${y}`;
         });
-
+*/
 const ui = {
     favicon: document.getElementById("favicon"),
 	turn_info: document.getElementById("turn_info"),
