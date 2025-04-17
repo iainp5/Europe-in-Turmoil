@@ -228,7 +228,7 @@ const TENSION = [0, 1 , 2, 3, 4, 5, 6]
 const LAST_STRATEGY_CARD = 110
 const SCORING_CARDS = [ 6, 7, 8, 43, 53 ]
 const SWITCH_EVENTS = [C_BELGIAN_RULE_IN_CONGO, C_TANGIER_CRISIS, C_AGADIR_CRISIS]
-const AUTO_RESOLVE_EVENTS = [C_STATE_SECULARISM_IN_FRANCE, C_MARCH_OF_HISTORY, C_ABSOLUTISM, C_JEAN_JAURES, C_US_INTERVENTIONISM, C_US_NON_INTERVENTIONISM, C_REINHOLD_VON_SYDOW]
+const AUTO_RESOLVE_EVENTS = [C_STATE_SECULARISM_IN_FRANCE, C_LEGACY_OF_BISMARCK, C_MARCH_OF_HISTORY, C_ABSOLUTISM, C_JEAN_JAURES, C_US_INTERVENTIONISM, C_US_NON_INTERVENTIONISM, C_REINHOLD_VON_SYDOW]
 const ONE_TURN_EVENTS = [C_DREYFUS_AFFAIR, C_ABSOLUTISM, C_MARCH_OF_HISTORY, C_LEGACY_OF_BISMARCK]
 const RED_EVENTS = [C_ENTENTE_CORDIALE, C_UNION_OF_LIBERATION, C_YOUNG_TURK_REVOLUTION, C_ENVER_PASHA, C_OCTOBER_MANIFESTO, C_JEAN_JAURES, C_REVOLUTION_OF_1905, C_VICTOR_CHERNOV ]
 
@@ -5424,7 +5424,7 @@ states.final_scoring = {
 states.vm_add_limited_infl_socio_scoring = {
 	prompt() {
 		let available = false
-		if (game.vm_max_infl === 1 && game.ops > 0) {
+		if (game.ops > 0) {
 			prompt_event(`Place ${game.vm_max_infl} SP ${event_prompt()}.`)
 			for (let s of get_country(game.active_country)) {
 				if (game.vm_influence_added && game.vm_influence_added[s] && game.vm_influence_added[s] === game.vm_max_infl) continue
@@ -9186,7 +9186,7 @@ CODE[219] = [ // Ecclesial Influence
 
 CODE[220] = [ // Limited Franchise
 	[ vm_if, ()=>control_socio_country(SOCIO_BOURGOISIE, game.active_country) ],
-	[ vm_prompt, 'SP in Government and/or Monarchy space(s) in the Scoring Region' ],
+	[ vm_prompt, 'in Government and/or Monarchy space(s) in the Scoring Region' ],
 	[ vm_add_limited_infl_socio_scoring, 2, 2, SOCIO_GOVERNMENT, SOCIO_MONARCHY ],
 	[ vm_else ],
 	[ vm_log, 'Authoritarian does not control a Bourgeoisie space.' ],

@@ -811,7 +811,7 @@ discard_stability
 CARD 220 - Limited Franchise	
 # If you control a Bourgeoisie space in the Scoring Region, place 2 Authoritarian SP in Government and/or Monarchy space(s) in the Scoring Region.
 if control_socio_country(SOCIO_BOURGOISIE, game.active_country)
-prompt 'SP in Government and/or Monarchy space(s) in the Scoring Region'
+prompt 'in Government and/or Monarchy space(s) in the Scoring Region'
 add_limited_infl_socio_scoring 2 2 SOCIO_GOVERNMENT SOCIO_MONARCHY
 else
 log 'Authoritarian does not control a Bourgeoisie space.'
