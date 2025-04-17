@@ -750,7 +750,6 @@ function get_roll() {
 // --------------- WAR AND CRISIS FUNCTIONS ---------------------
 
 function check_crisis() {
-	console.log('crisis', game.konig_roll)
 	let roll = get_roll()
 	if (roll === null)
 		return true
@@ -869,7 +868,7 @@ function check_scoring_events() {
 function check_event_resolution() {
 	if (check_colossus())
 		return
-	if (game.vm_event_to_do ) {
+	if (game.vm_event_to_do && event_is_playable(game.played_card)) {
 		game.state = 'resolve_opponent_event'
 		return
 	} else {
@@ -1142,7 +1141,6 @@ function check_lib_control(space) {
 
 function control_socio_country(socio, country) {
 	for (let s of get_country(country)) {
-		console.log(spaces[s].name, )
 		if (game.active === 0) {
 			if (get_socio_1(s) === socio || get_socio_2(s) === socio)
 				if (check_aut_control(s))
@@ -1713,7 +1711,6 @@ function score_country(country) {
 	let lib_vp = 0
 	let presence = check_presence(country)
 	let adj_ind = count_adj_ind(country)
-	console.log('AH', presence)
 	log('Authoritarian:')
 	if (presence.aut_control) {
 		logi(`-${value_control} VP Control`)
@@ -1807,22 +1804,15 @@ function check_presence(country) {
 	let aut_battlegrounds = 0
 
 	for (let s of get_country(country)) {
-		console.log(spaces[s].name)
 		if (check_lib_control(s)) {
-			console.log('is lib controlled')
 			lib_spaces++
-			if (is_battleground(s)) {
-				console.log('is lib battleground')
+			if (is_battleground(s))
 				lib_battlegrounds++
-			}
 		}
 		if (check_aut_control(s)) {
-			console.log('is aut controlled')
 			aut_spaces++
-			if (is_battleground(s)) {
-				console.log('is aut battleground')
+			if (is_battleground(s))
 				aut_battlegrounds++
-			}
 		}
 	}
 	
@@ -1857,7 +1847,7 @@ function count_adj_ind(country) {
 function count_aut_monarchist() {
 	let m = 0
 	for (let s of ALL_SPACES)
-		if (check_aut_control && (get_socio_1(s) === SOCIO_MONARCHY || get_socio_2(s) === SOCIO_MONARCHY))
+		if (check_aut_control(s) && (get_socio_1(s) === SOCIO_MONARCHY || get_socio_2(s) === SOCIO_MONARCHY))
 			m++
 	return m
 }
@@ -2696,7 +2686,6 @@ function goto_great_war_choose() {
 	game.entente = game.entente.filter( n => n !== game.active_country)
 	game.entente = game.entente.filter( n => n !== N_BRITAIN)
 	delete game.active_country
-	console.log('last check', game.central_powers.length, game.entente.length)
 	if (game.central_powers.length === 0 && game.entente.length === 0) {
 		log_h3('Final Scoring')
 		game.state = 'final_scoring'
@@ -2937,7 +2926,6 @@ function vm_prompt() {
 
 function vm_return() {
 	delete_temp_vars()
-	console.log('check finish_admiral_von_tirpitz', finish_admiral_von_tirpitz())
 	if (finish_admiral_von_tirpitz())
 		return
 	if (check_colossus())
@@ -4338,6 +4326,7 @@ states.choose_card = {
 	card(card) {
 		push_undo()
 		game.playable_cards = game.playable_cards.filter(c => c !== C_BERNHARD_VON_BÜLOW)
+		console.log('game.playable', game.playable_cards)
 		// Check if player is at risk of losing game due to held scoring card
 		if (!SCORING_CARDS.includes(card)) {
 			let scoring_cards_count = count_scoring_cards()
@@ -5380,7 +5369,6 @@ states.war_losses_control = {
 states.final_scoring = {
 	inactive: 'finish Final Scoring',
 	prompt() {
-		console.log('fs', game.final_scoring)
 		if (game.final_scoring.length > 0) {
 			view.prompt = `Final Scoring: Select a region to score.`
 			for (let r of game.final_scoring) {
@@ -6826,7 +6814,6 @@ states.vm_admiral_von_tirpitz = {
 			goto_vm(game.vm_event)
 			return
 		}
-		console.log('here')
 		if (game.temp === 2) {
 			game.aut_naval_position ++
 			check_naval_awards()
@@ -7136,7 +7123,6 @@ states.vm_exiles_escape_add = {
 states.vm_foreign_investments = {
 	prompt() {
 		let workers = [...get_country(N_FRANCE), ... get_country(N_GERMANY)]
-		console.log('game.temp', game.temp)
 		if (game.temp < 4) {
 			prompt_event('Remove up to 4 Liberal SP from Worker spaces in France and/or Germany.')
 			for (let s of workers) {
@@ -8091,7 +8077,6 @@ states.vm_anarchist_attack = {
 		let available = false
 		if (game.ops > 0){
 			for (let s of get_country(game.active_country)) {
-				console.log('checking', spaces[s].name, get_socio_1(s) === SOCIO_GOVERNMENT, get_socio_1(s) === SOCIO_MONARCHY)
 				if ((get_socio_1(s) === SOCIO_GOVERNMENT || get_socio_1(s) === SOCIO_MONARCHY) && has_opp_infl(s)) {
 					gen_action_space(s)
 					available = true
