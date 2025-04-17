@@ -8466,7 +8466,7 @@ CODE[33] = [ // Modernism
 
 CODE[34] = [ // Government-sponsored Art
 	[ vm_prompt, 'Place 1 Authoritarian SP in each Intellectual space (except Bosnia and Siberia)' ],
-	[ vm_add_limited_infl_free_spaces, 1, 5, S_FRENCH_WRITERS, S_FAUVISM, S_JUGENDSTIL, S_VIENNESE_SECESSION, S_SYMBOLISM, S_DENMARK ],
+	[ vm_add_limited_infl_free_spaces, 1, 6, S_FRENCH_WRITERS, S_FAUVISM, S_JUGENDSTIL, S_VIENNESE_SECESSION, S_SYMBOLISM, S_DENMARK ],
 	[ vm_return ],
 ]
 

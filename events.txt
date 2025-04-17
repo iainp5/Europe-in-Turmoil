@@ -171,7 +171,7 @@ add_limited_infl_free_socio 2 4 SOCIO_INTELLECTUALS
 CARD 34 - Government-sponsored Art	
 # Place 1 Authoritarian SP in each Intellectual space (except Bosnia and Siberia).
 prompt 'Place 1 Authoritarian SP in each Intellectual space (except Bosnia and Siberia)'
-add_limited_infl_free_spaces 1 5 S_FRENCH_WRITERS S_FAUVISM S_JUGENDSTIL S_VIENNESE_SECESSION S_SYMBOLISM S_DENMARK
+add_limited_infl_free_spaces 1 6 S_FRENCH_WRITERS S_FAUVISM S_JUGENDSTIL S_VIENNESE_SECESSION S_SYMBOLISM S_DENMARK
 
 CARD 35 - Absolutism*	
 # +1 OPs value for cards played by the Authoritarian player for the rest of the turn.
