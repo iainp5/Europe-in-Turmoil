@@ -4325,8 +4325,6 @@ states.choose_card = {
 	},
 	card(card) {
 		push_undo()
-		game.playable_cards = game.playable_cards.filter(c => c !== C_BERNHARD_VON_BÜLOW)
-		console.log('game.playable', game.playable_cards)
 		// Check if player is at risk of losing game due to held scoring card
 		if (!SCORING_CARDS.includes(card)) {
 			let scoring_cards_count = count_scoring_cards()
