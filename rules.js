@@ -907,7 +907,7 @@ function check_naval_awards () {
 		else if (game.aut_naval_position === N_HELGOLAND_CLASS) {
 			if (game.lib_naval_position < N_HELGOLAND_CLASS) {
 				log('Until opponent reaches this box, may take one additional action round each turn, which must be a Naval Arms Race attempt with (-1 to the roll).')
-				game.helgoland = 1
+				game.helgoland = 0
 			} else { 
 				log('Cancels Liberal bonus.')
 				delete game.helgoland
@@ -1010,7 +1010,7 @@ function check_naval_awards () {
 		}
 		else if (game.lib_naval_position === N_HELGOLAND_CLASS) {
 			if (aut_naval_position() < N_HELGOLAND_CLASS) {
-				game.helgoland = 0
+				game.helgoland = 1
 				log('Until opponent reaches this box, may take one additional action round each turn, which must be a Naval Arms Race attempt with (-1 to the roll).')
 			} else { 
 				delete game.helgoland
@@ -4131,10 +4131,10 @@ function do_free_naval_attempt() {
 			log(`Success: ${roll} >= ${NAVAL_REQ[game.aut_naval_position]}`)
 			game.aut_naval_position ++
 			delete game.aut_naval_attempted
+			check_naval_awards()
 			game.state = 'vm_naval_law_amendment_success'
 		} else {
 			log(`Fail: ${roll} < ${NAVAL_REQ[game.aut_naval_position]}`)
-			game.aut_naval_attempted = true
 			game.state = 'vm_naval_law_amendment_fail'
 		}
 	}
