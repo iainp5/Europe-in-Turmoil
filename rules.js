@@ -7541,6 +7541,7 @@ states.vm_scramble_for_africa = {
 	},
 	space(s) {
 		add_infl(s)
+		check_vm_next()
 	},
 	done(s){
 		push_undo()
