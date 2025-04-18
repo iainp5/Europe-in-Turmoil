@@ -2223,7 +2223,7 @@ function end_round() {
 	// Check for Orion Class
 	if (game.round === 2 && game.phasing_player === game.orion && !game.orion_used) {
 		game.active = game.phasing_player
-		game.view_opp_hand = game.active === 0 ? game.authoritarian_hand : game.liberal_hand
+		game.view_opp_hand = game.active === 0 ? game.liberal_hand : game.authoritarian_hand
 		log_h4('N' + N_ORION_CLASS)
 		log('.' + (1 - game.active) + ' reveals:')
 		for (let c of game.view_opp_hand)
