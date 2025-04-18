@@ -92,6 +92,17 @@ body.Authoritarian header.your_turn { background-color: hsl(45, 70%, 75%); }
 @media (min-resolution: 97dpi) {
 	#map { background-image: url("map.jpg") }
 }
+
+@media (max-width: 800px) {
+	.panel {
+		min-width: calc(1650px - 8px);
+	}
+	#tooltip {
+		inset: 0;
+		margin: auto;
+	}
+}
+
 /*
 #playmap { background-image: url("map.jpg") }
 @media (min-resolution: 97dpi) {
