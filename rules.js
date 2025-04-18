@@ -499,9 +499,10 @@ function add_infl(space) {
 			game.ops -= 2
 	}
 	else if (check_opp_control(space)) {
-		if (game.active === 1 && spaces[space].country === R_FRANCE) // WHAT IS THIS?
+		if (game.active === 1 && spaces[space].country === R_FRANCE && game.persistent_events.includes(C_GEORGES_CLEMENCEAU)) {
+			logi('C' + C_GEORGES_CLEMENCEAU)
 			game.ops --
-		else {
+		} else {
 			game.ops -= 2
 			if (game.ops < 0) {
 				if (!game.bf_logged) {
@@ -5190,7 +5191,7 @@ states.great_war_roll = {
 				log('Entente wins the Great War!')
 				log('+4 VP')
 				game.vp += 4
-				game.gw_winner = 0
+				game.gw_winner = 1
 			} else {
 				log('Both sides lose the Great War!')
 			}
