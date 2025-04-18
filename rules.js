@@ -5168,7 +5168,7 @@ states.great_war_roll = {
 			}
 			if (game.persistent_events.includes(C_US_INTERVENTIONISM) && game.persistent_events.includes(C_US_INTERVENTIONISM)) {
 				roll += 2
-				logi('+1 C' + C_US_INTERVENTIONISM)
+				logi('+2 C' + C_US_INTERVENTIONISM)
 			}
 			if (game.lib_naval_position > game.aut_naval_position) {
 				roll ++
