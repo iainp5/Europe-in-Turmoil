@@ -4814,7 +4814,7 @@ states.naval_attempt = {
 	},
 	roll() {
 		push_undo()
-		if (check_von_bethmann_hollweg()) {
+		if (check_von_bethmann_hollweg() || check_naval_open()) {
 			game.aut_naval_attempted_this_turn ++
 			end_round()
 		} else
@@ -4823,6 +4823,14 @@ states.naval_attempt = {
 	continue() {
 		if (do_naval_attempt())
 			throw new Error("Konig error")
+	}
+}
+
+function check_naval_open() {
+	if (game.active === 0 && game.lib_naval_position === N_PRE_DREADNOUGHT) {
+		log(`Authoritarian Naval Arms Race attempts fail when both markers are in the Pre-Dreadnought space.`)
+		game.aut_naval_attempted = true
+		return true
 	}
 }
 
